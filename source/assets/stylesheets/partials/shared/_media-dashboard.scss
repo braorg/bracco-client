@@ -1,0 +1,32 @@
+.media-dashboard{
+  &.media{
+    .media-left{
+      padding-right: 20px;
+    }
+    .media-body{}
+    .media-heading{
+      @include font-style(27px, #333);
+      font-weight: 300;
+      margin-bottom: 12px;
+    }
+    .media-description{
+      font-size: 12px;
+      margin-bottom: 15px;
+    }
+    // .media-btn{
+    //   margin-bottom: 20px;
+    // }
+  }
+}
+
+.list-group--works{
+  &.scroll{
+    height: 200px;
+    overflow-y: scroll;
+  }
+  &.list-group{
+    &-item{
+      background-color: transparent;
+    }
+  }
+}

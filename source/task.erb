@@ -1,0 +1,135 @@
+---
+title: Bracco
+---
+
+<%= partial("partials/header", locals:
+    {
+      show: 'yes'
+    }
+  )
+%>
+
+<%= partial "partials/sidebar" %>
+<main class="main-container centered">
+  <%= partial "partials/breadcrumbs" %>
+  <div class="visible-xs-block">
+    <%= partial "partials/mini-nav" %>
+  </div>
+  <div class="container">
+    <section class="clearfix toolbar">
+      <div class="pull-left">
+        <%= partial("partials/shared/form-search", locals:
+            {
+              placeholder: "Filtra per..."
+            }
+          )
+        %>
+      </div>
+      <div class="pull-right hidden-xs">
+        <a href="" class="btn btn-success btn-md">show all</a>
+        <a href="" class="btn btn-success btn-md">select all</a>
+        <a href="" class="btn btn-danger btn-lg">delete selected</a>
+      </div>
+    </section>
+    <section class="items-list">
+      <div class="wrapper padding-10 items-list__row">
+        <div class="items-list__info">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. [...]
+        </div>
+        <div class="items-list__buttons">
+          <a href="task-details.html" class="btn btn-info btn-square" title="Mostra dettagli">
+            <i class="fa fa-eye" aria-hidden="true"></i>
+          </a>
+          <a href="modify-task.html" class="btn btn-info btn-square" title="Modifica">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </a>
+          <a href="" class="btn btn-warning btn-square" title="Archivia">
+            <i class="fa fa-archive" aria-hidden="true"></i>
+          </a>
+          <a href="" class="btn btn-danger btn-square" title="Elimina">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+      <div class="wrapper padding-10 items-list__row">
+        <div class="items-list__info">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. [...]
+        </div>
+        <div class="items-list__buttons">
+          <a href="view-note.html" class="btn btn-info btn-square" title="Mostra dettagli">
+            <i class="fa fa-eye" aria-hidden="true"></i>
+          </a>
+          <a href="modify-note.html" class="btn btn-info btn-square" title="Modifica">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </a>
+          <a href="" class="btn btn-warning btn-square" title="Archivia">
+            <i class="fa fa-archive" aria-hidden="true"></i>
+          </a>
+          <a href="" class="btn btn-danger btn-square" title="Elimina">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+      <div class="wrapper padding-10 items-list__row">
+        <div class="items-list__info">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. [...]
+        </div>
+        <div class="items-list__buttons">
+          <a href="view-note.html" class="btn btn-info btn-square" title="Mostra dettagli">
+            <i class="fa fa-eye" aria-hidden="true"></i>
+          </a>
+          <a href="modify-note.html" class="btn btn-info btn-square" title="Modifica">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </a>
+          <a href="" class="btn btn-warning btn-square" title="Archivia">
+            <i class="fa fa-archive" aria-hidden="true"></i>
+          </a>
+          <a href="" class="btn btn-danger btn-square" title="Elimina">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+      <div class="wrapper padding-10 items-list__row">
+        <div class="items-list__info">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. [...]
+        </div>
+        <div class="items-list__buttons">
+          <a href="view-note.html" class="btn btn-info btn-square" title="Mostra dettagli">
+            <i class="fa fa-eye" aria-hidden="true"></i>
+          </a>
+          <a href="modify-note.html" class="btn btn-info btn-square" title="Modifica">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </a>
+          <a href="" class="btn btn-warning btn-square" title="Archivia">
+            <i class="fa fa-archive" aria-hidden="true"></i>
+          </a>
+          <a href="" class="btn btn-danger btn-square" title="Elimina">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+      <div class="wrapper padding-10 items-list__row">
+        <div class="items-list__info">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. [...]
+        </div>
+        <div class="items-list__buttons">
+          <a href="view-note.html" class="btn btn-info btn-square" title="Mostra dettagli">
+            <i class="fa fa-eye" aria-hidden="true"></i>
+          </a>
+          <a href="modify-note.html" class="btn btn-info btn-square" title="Modifica">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </a>
+          <a href="" class="btn btn-warning btn-square" title="Archivia">
+            <i class="fa fa-archive" aria-hidden="true"></i>
+          </a>
+          <a href="" class="btn btn-danger btn-square" title="Elimina">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+    <nav class="text-right">
+      <%= partial "partials/shared/pagination" %>
+    </nav>
+  </div>
+</main>

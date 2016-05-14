@@ -1,0 +1,26 @@
+.breadcrumb-bar{
+  background: #595e62;
+  @include spaces(19px 15px, 0 0 45px);
+  .container{
+    @include respond-to(max-width, 767px) {
+      padding: 0;
+    }
+  }
+  .breadcrumb{
+    background-color: transparent;
+    @include spaces(0, 0);
+    border-radius: 0;
+    // @include respond-to(min-width, 768px) {
+    //   margin-left: 50px;
+    // }
+    li{
+      &.active{
+        @include font-style(12px, #21abc7);
+      }
+      a{
+        @include font-style(12px, white);
+        font-weight: 300;
+      }
+    }
+  }
+}

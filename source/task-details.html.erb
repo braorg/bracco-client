@@ -1,0 +1,53 @@
+---
+title: Bracco
+---
+
+<%= partial("partials/header", locals:
+    {
+      show: 'yes'
+    }
+  )
+%>
+
+<%= partial "partials/sidebar" %>
+<main class="main-container centered">
+  <%= partial "partials/breadcrumbs" %>
+  <%= partial "partials/mini-nav" %>
+  <section class="container">
+    <div class="col-sm-10 col-md-8 center-block">
+      <div class="wrapper">
+        <div class="padding-30">
+          <div class="row">
+            <div class="col-sm-6">
+              <p class="decorator">
+                Mittente: Ilaria Di Rosa
+              </p>
+            </div>
+            <div class="col-sm-6">
+              <p class="decorator">
+                Destinatario: Roberto Petrucci
+              </p>
+            </div>
+          </div>
+          <h3 class="no-margin-top decorator">
+            Fare preventivo per Zucchetti
+          </h3>
+          <p class="no-margin-bottom decorator">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.
+          </p>
+        </div>
+        <div class="bottom-band padding-30 info-note">
+          <div class="row">
+            <div class="col-md-6">Data di creazione: 24 Luglio 2015</div>
+            <div class="col-md-6">Data di scadenza: 25 Luglio 2015</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container">
+    <div class="col-sm-10 col-md-8 center-block">
+      <%= partial "partials/comments" %>
+    </div>
+  </section>
+</main>

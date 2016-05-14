@@ -1,0 +1,76 @@
+---
+title: Bracco
+---
+
+<%= partial("partials/header", locals:
+    {
+      show: 'yes'
+    }
+  )
+%>
+
+<main class="main-container">
+  <%= partial "partials/breadcrumbs" %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <%= partial("partials/shared/dashboard-box", locals:
+            {
+              img: 'ico-ticket.png',
+              title: 'Task',
+              description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                            Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.<br>
+                            Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.',
+              btn_text: 'Vai ai task',
+              link: 'task-calendar.html'
+            }
+          )
+        %>
+      </div>
+      <div class="col-sm-6">
+        <%= partial("partials/shared/dashboard-box", locals:
+            {
+              img: 'ico-notes.png',
+              title: 'Appunti',
+              description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                            Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.<br>
+                            Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.',
+              btn_text: 'Vai agli appunti',
+              link: 'notes.html'
+            }
+          )
+        %>
+      </div>
+      <div class="col-sm-6">
+        <%= partial("partials/shared/dashboard-box", locals:
+            {
+              img: 'ico-rubric.png',
+              title: 'Rubrica',
+              description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                            Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.<br>
+                            Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.',
+              btn_text: 'Vai alla rubrica',
+              link: 'rubric.html'
+            }
+          )
+        %>
+      </div>
+      <div class="col-sm-6">
+        <div class="wrapper">
+          <h4 class="section-title top-band text-uppercase no-margin">Task del giorno</h4>
+          <div class="padding-15 list-group list-group--works scroll">
+            <a href="#" class="list-group-item">Cras justo odio</a>
+            <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+            <a href="#" class="list-group-item">Morbi leo risus</a>
+            <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+            <a href="#" class="list-group-item">Vestibulum at eros</a>
+            <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+            <a href="#" class="list-group-item">Morbi leo risus</a>
+            <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+            <a href="#" class="list-group-item">Vestibulum at eros</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

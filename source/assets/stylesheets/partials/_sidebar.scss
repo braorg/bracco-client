@@ -1,0 +1,36 @@
+.sidebar{
+  // @include respond-to(min-width, 768px) {
+  //
+  // }
+  @include respond-to(max-width, 767px) {
+    display: none;
+  }
+  @include position(left, 0, top, 70px, fixed);
+  z-index: 2001;
+  min-height: 100%;
+  display: block;
+  background: #595e62;
+  width: 50px;
+  .sidebar-nav{
+    &.nav-stacked{
+      & > li + li{
+        margin: 0;
+      }
+    }
+    li{
+      &.active a{
+        background-color: #21abc7;
+        color: white;
+      }
+      a{
+        border-radius: 0;
+        padding: 15px;
+        @include font-style(20px, #333);
+        &:hover{
+          background-color: #21abc7;
+          color: white;
+        }
+      }
+    }
+  }
+}

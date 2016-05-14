@@ -1,0 +1,167 @@
+body{
+  background: #f5f6f8;
+  &.index{
+    margin-top: 120px;
+  }
+}
+
+/* Overwrite the default to keep the scrollbar always visible */
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+//
+
+a{
+  @include transition(all 0.2s ease-in);
+}
+
+*:focus{
+  outline: none !important;
+}
+
+input::-moz-placeholder {
+  opacity: 1;
+  font-weight: 300;
+}
+input:-ms-input-placeholder {
+  font-weight: 300;
+}
+input::-webkit-input-placeholder {
+  font-weight: 300;
+}
+
+textarea::-moz-placeholder {
+  opacity: 1;
+  font-weight: 300;
+}
+textarea:-ms-input-placeholder {
+  font-weight: 300;
+}
+textarea::-webkit-input-placeholder {
+  font-weight: 300;
+}
+
+.no-margin{
+  margin: 0;
+}
+
+.no-margin-top{
+  margin-top: 0;
+}
+
+.no-margin-bottom{
+  margin-bottom: 0;
+}
+
+.center-block{
+  float: none;
+}
+
+.main-container{
+  @include spaces(0, 71px 0 50px);
+  background: #f5f6f8;
+  &.margin-left50{
+    @include transition(all 1.2s ease-in);
+    @include respond-to(max-width, 767px) {
+      margin-left: 50px;
+    }
+  }
+  &.centered{
+    @include respond-to(min-width, 768px) {
+      margin-left: 50px;
+    }
+  }
+}
+
+.btn{
+  border-radius: 100px;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 300;
+  @include transition(all 0.2s ease-in);
+  &-success{
+    background-color: #21abc7;
+    &:hover, &:focus, &:active{
+      background-color: lighten(#21abc7, 10%);
+    }
+  }
+  &-danger{
+    background-color: #f58383;
+    &:hover, &:focus, &:active{
+      background-color: lighten(#f58383, 10%);
+    }
+  }
+  &-info{
+    background-color: #c5d5ea;
+    &:hover, &:focus, &:active{
+      background-color: lighten(#c5d5ea, 10%);
+    }
+  }
+  &-square{
+    padding: 8px 11px;
+    border-radius: 4px;
+  }
+  &.btn-sm{
+    padding: 5px 20px;
+  }
+  &.btn-md{
+    padding: 10px;
+    min-width: 120px;
+    font-size: 14px;
+  }
+  &.btn-lg{
+    padding: 10px;
+    min-width: 180px;
+    font-size: 14px;
+  }
+}
+
+.toolbar{
+  margin-bottom: 25px;
+}
+
+.items-list{
+  .wrapper{
+    margin-bottom: 8px;
+  }
+  &__row{
+    @extend .clearfix;
+  }
+  &__info{
+    @include respond-to(min-width, 769px) {
+      float: left;
+      padding: 8px 0px;
+    }
+    .column{
+      @include respond-to(max-width, 768px) {
+        display: block;
+        margin-bottom: 10px;
+      }
+      @include respond-to(min-width, 769px) {
+        margin-right: 20px;
+      }
+    }
+  }
+  &__buttons{
+    @include respond-to(min-width, 769px) {
+      float: right;
+    }
+    @include respond-to(max-width, 768px) {
+      margin-top: 10px;
+    }
+  }
+}
+
+.decorator{
+  @extend .form-control;
+  @include border(1px, #e6e6e6);
+  height: auto;
+  @include box-shadow(none);
+}

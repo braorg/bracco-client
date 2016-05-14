@@ -1,0 +1,66 @@
+---
+title: Bracco
+---
+
+<%= partial("partials/header", locals:
+    {
+      show: 'yes'
+    }
+  )
+%>
+
+<%= partial "partials/sidebar" %>
+<main class="main-container centered">
+  <%= partial "partials/breadcrumbs" %>
+  <div class="container">
+    <div class="col-sm-10 col-md-8 center-block">
+      <div class="wrapper padding-30">
+        <form class="text-center form-customized">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon1">
+                  <i class="fa fa-upload" aria-hidden="true"></i>
+                </span>
+                <input type="text" class="form-control" id="" placeholder="Mittente" value="Ilaria Di Rosa" aria-describedby="sizing-addon1" disabled>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <select class="form-control">
+                <option>Roberto Petrucci</option>
+                <option>Fabio Petrucci</option>
+                <option>Giovanna Petrucci</option>
+                <option>Ilaria Di Rosa</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="" placeholder="Titolo">
+          </div>
+          <div class="form-group">
+            <textarea rows="7" class="form-control" placeholder="Descrizione"></textarea>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon1">
+                  <i class="fa fa-paperclip" aria-hidden="true"></i>
+                </span>
+                <input type="file" class="form-control" id="" placeholder="Allegato" aria-describedby="sizing-addon1">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon1">
+                  <i class="fa fa-calendar" aria-hidden="true"></i>
+                </span>
+                <input type="date" class="form-control" id="" placeholder="Scadenza" aria-describedby="sizing-addon1">
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success btn-lg">Crea Task</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>

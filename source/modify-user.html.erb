@@ -1,0 +1,49 @@
+---
+title: Bracco
+---
+
+<%= partial("partials/header", locals:
+    {
+      show: 'yes'
+    }
+  )
+%>
+
+<%= partial "partials/sidebar" %>
+<main class="main-container centered">
+  <%= partial "partials/breadcrumbs" %>
+  <div class="container">
+    <div class="col-xs-12 col-sm-7 col-md-4 center-block">
+      <div class="wrapper center-block padding-30">
+        <form class="text-center form-customized">
+          <div class="form-group">
+            <input type="text" class="form-control" id="" placeholder="Nome" value="Ilaria">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="" placeholder="Cognome" value="Di Rosa">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="" placeholder="Username" value="iladiro">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" value="dirosa.ilaria@gmail.com">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" value="angels88">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Conferma Password" value="angels88">
+          </div>
+          <div class="form-group">
+            <select class="form-control">
+              <option>Profilo utente</option>
+              <option selected="selected">Amministratore</option>
+              <option>Dipendente</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-success btn-lg">Applica modifiche</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>

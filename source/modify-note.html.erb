@@ -1,0 +1,30 @@
+---
+title: Bracco
+---
+
+<%= partial("partials/header", locals:
+    {
+      show: 'yes'
+    }
+  )
+%>
+
+<%= partial "partials/sidebar" %>
+<main class="main-container centered">
+  <%= partial "partials/breadcrumbs" %>
+  <div class="container">
+    <div class="col-sm-10 col-md-8 center-block">
+      <div class="wrapper padding-30">
+        <form class="text-center form-customized">
+          <div class="form-group">
+            <input type="text" class="form-control" id="" placeholder="Titolo" value="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.">
+          </div>
+          <div class="form-group">
+            <textarea rows="7" class="form-control" placeholder="Descrizione">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.</textarea>
+          </div>
+          <button type="submit" class="btn btn-success btn-lg">Salva modifiche</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>

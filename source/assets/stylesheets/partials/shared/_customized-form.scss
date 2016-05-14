@@ -1,0 +1,31 @@
+.form-customized{
+  .input-group{
+    margin-bottom: 15px;
+    &-addon{
+      @include border(1px, #e6e6e6, top);
+      @include border(1px, #e6e6e6, left);
+      @include border(1px, #e6e6e6, bottom);
+    }
+  }
+  .form-control{
+    @include border(1px, #e6e6e6);
+    height: 40px;
+    @include box-shadow(none);
+    @include placeholder(#d9d9d9);
+    &:focus{
+      @include box-shadow(inset 0px 2px 10px #e6e6e6);
+    }
+    &:hover{
+      @include border(1px, #21abc7);
+    }
+  }
+  .btn{
+    margin: 30px 0;
+  }
+  textarea{
+    height: auto !important;
+    &:focus{
+      border-color: #e6e6e6;
+    }
+  }
+}
