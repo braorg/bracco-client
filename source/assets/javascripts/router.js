@@ -6,9 +6,10 @@ m.route(document.getElementById('app'), "/", {
   "/dashboard": dashboard,
 
   // Users routing
-  "/users": users,
+  "/users": usersList,
   "/users/new": userForm,
   "/users/archive": usersArchive,
+  "/users/:userId/edit": usersArchive,
 
   // Notes routing
   "/notes": notes,

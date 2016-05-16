@@ -1,4 +1,4 @@
-users = (function() {
+usersList = (function() {
   var sideBarItems = [
     {
       "icon": "fa-users",
@@ -26,45 +26,12 @@ users = (function() {
       "active": true
     }
   ];
-  var buttonsItems = [
-    {
-      "icon": "fa-eye",
-      "title": "Mostra dettagli",
-      "link": "/users/view-123",
-      "btnClass": "btn-info"
-    },
-    {
-      "icon": "fa-pencil",
-      "title": "Modifica",
-      "link": "/users/modify-123",
-      "btnClass": "btn-info"
-    },
-    {
-      "icon": "fa-archive",
-      "title": "Archivia",
-      "link": "/users/archive-123",
-      "btnClass": "btn-warning"
-    },
-    {
-      "icon": "fa-trash-o",
-      "title": "Elimina",
-      "link": "/users/delete-123",
-      "btnClass": "btn-danger"
-    }
-  ];
   var content = function() {
     return [
-      m(m.component(toolBar)),
+      m(toolBar),
+      // m(m.component(itemList))
       m(".items-list", [
-        m('.wrapper .padding-10 .items-list__row', [
-          m(".items-list__info", [
-            m("span", { class: "column" }, "Ilaria Di Rosa"),
-            m("span", { class: "column" }, "iladiro"),
-            m("span", { class: "column" }, "angels88"),
-            m("span", { class: "column" }, "dirosa.ilaria@gmail.com")
-          ]),
-          m(".items-list__buttons", buttonsItems.map(button))
-        ])
+        m(userItem)
       ])
 		];
   };
