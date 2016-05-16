@@ -1,22 +1,34 @@
 rubricForm = (function() {
   var sideBarItems = [
     {
-      "icon": "fa-user-plus",
-      "link": "/?/rubric/new",
-      "title": "Aggiungi Contatto",
-      "active": true
-    },
-    {
       "icon": "fa-users",
       "link": "/?/rubric",
        "title": "Mostra Contatti della Rubrica",
       "active": false
     },
     {
+      "icon": "fa-user-plus",
+      "link": "/?/rubric/new",
+      "title": "Aggiungi Contatto",
+      "active": true
+    },
+    {
       "icon": "fa-archive",
       "link": "/?/rubric/archive",
       "title": "Mostra Contatti in archivio",
       "active": false
+    }
+  ];
+  var breadcrumbItems = [
+    {
+      "link": "/?/rubric",
+      "text": "Rubrica",
+      "active": false
+    },
+    {
+      "link": "/?/rubric/new",
+      "text": "Aggiungi Contatto",
+      "active": true
     }
   ];
   var content = function() {
@@ -48,11 +60,19 @@ rubricForm = (function() {
     ];
   };
 
+  var breadcrumbBar = function() {
+    return [
+      m('ol', { class: 'breadcrumb' },
+        breadcrumb(breadcrumbItems)
+      )
+    ];
+  };
+
   return {
     controller: function(){
       var ctrl = this;
     },
-    view: mixinLayout(layout2, topNav, sidebarNav, content)
+    view: mixinLayout(layout2, topNav, sidebarNav, breadcrumbBar, content)
   };
 
 })();

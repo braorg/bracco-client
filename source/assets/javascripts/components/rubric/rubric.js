@@ -1,38 +1,28 @@
-usersArchive = (function() {
+rubric = (function() {
   var sideBarItems = [
     {
       "icon": "fa-users",
-      "link": "/?/users",
-      "title": "Mostra tutti gli utenti",
-      "active": false
+      "link": "/?/rubric",
+      "title": "Mostra tutti i Contatti",
+      "active": true
     },
     {
       "icon": "fa-user-plus",
-      "link": "/?/users/new",
-      "title": "Aggiungi utente",
+      "link": "/?/rubric/new",
+      "title": "Aggiungi Contatto",
       "active": false
     },
     {
       "icon": "fa-archive",
-      "link": "/?/users/archive",
-      "title": "Mostra utenti in archivio",
-      "active": true
+      "link": "/?/rubric/archive",
+      "title": "Mostra Contatti in archivio",
+      "active": false
     }
   ];
   var breadcrumbItems = [
     {
-      "link": "/?/dashboard",
-      "text": "Home",
-      "active": false
-    },
-    {
-      "link": "/?/users",
-      "text": "Utenti",
-      "active": false
-    },
-    {
-      "link": "/?/users/archive",
-      "text": "Archivio",
+      "link": "/?/rubric",
+      "text": "Rubric",
       "active": true
     }
   ];
@@ -40,19 +30,25 @@ usersArchive = (function() {
     {
       "icon": "fa-eye",
       "title": "Mostra dettagli",
-      "link": "/?/users/view-123",
+      "link": "/rubric/view-123",
       "btnClass": "btn-info"
     },
     {
-      "icon": "fa-reply",
-      "title": "Ripristina",
-      "link": "/?/users/archive-123",
+      "icon": "fa-pencil",
+      "title": "Modifica",
+      "link": "/rubric/modify-123",
+      "btnClass": "btn-info"
+    },
+    {
+      "icon": "fa-archive",
+      "title": "Archivia",
+      "link": "/rubric/archive-123",
       "btnClass": "btn-warning"
     },
     {
       "icon": "fa-trash-o",
       "title": "Elimina",
-      "link": "/?/users/delete-123",
+      "link": "/rubric/delete-123",
       "btnClass": "btn-danger"
     }
   ];
@@ -83,7 +79,7 @@ usersArchive = (function() {
   var breadcrumbBar = function() {
     return [
       m('ol', { class: 'breadcrumb' },
-        breadcrumbItems.map(breadcrumb)
+        breadcrumb(breadcrumbItems)
       )
     ];
   };

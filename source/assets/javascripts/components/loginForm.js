@@ -19,6 +19,6 @@ loginForm = (function() {
     controller: function(){
       var ctrl = this;
     },
-    view: mixinLayout(layout, topNav, sidebarNav, content)
+    view: mixinLayout(layout, topNav, sidebarNav, breadcrumbBar, content)
   };
 })();

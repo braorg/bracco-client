@@ -36,10 +36,10 @@ var breadcrumbBar = function() {
   return [];
 };
 
-var layout = function(topNav, sidebarNav, content) {
+var layout = function(topNav, sidebarNav, breadcrumbBar, content) {
   return [
     m.component(topNav),
-    m('main', { class: 'main-container'}, [
+    m('main', { class: 'main-container top'}, [
       m('.container', content)
     ])
   ]

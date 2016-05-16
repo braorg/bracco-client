@@ -1,22 +1,34 @@
 taskForm = (function() {
   var sideBarItems = [
     {
-      "icon": "fa-plus",
-      "link": "task/new",
-      "title": "Crea Task",
-      "active": true
-    },
-    {
       "icon": "fa-ticket",
-      "link": "task",
+      "link": "/?/task",
       "title": "Mostra lista dei Task",
       "active": false
     },
     {
+      "icon": "fa-plus",
+      "link": "/?/task/new",
+      "title": "Crea Task",
+      "active": true
+    },
+    {
       "icon": "fa-archive",
-      "link": "task/archive",
+      "link": "/?/task/archive",
       "title": "Mostra Task in archivio",
       "active": false
+    }
+  ];
+  var breadcrumbItems = [
+    {
+      "link": "/?/task",
+      "text": "Task",
+      "active": false
+    },
+    {
+      "link": "/?/task/new",
+      "text": "Crea Task",
+      "active": true
     }
   ];
   var content = function() {
@@ -83,11 +95,20 @@ taskForm = (function() {
     ];
   };
 
+  var breadcrumbBar = function() {
+    return [
+      m('ol', { class: 'breadcrumb' },
+        breadcrumb(breadcrumbItems)
+        // breadcrumbItems.map(breadcrumb)
+      )
+    ];
+  };
+
   return {
     controller: function(){
       var ctrl = this;
     },
-    view: mixinLayout(layout2, topNav, sidebarNav, content)
+    view: mixinLayout(layout2, topNav, sidebarNav, breadcrumbBar, content)
   };
 
 })();

@@ -8,11 +8,17 @@ m.route(document.getElementById('app'), "/", {
   "/users/archive": usersArchive,
 
   // Notes routing
+  "/notes": notes,
   "/notes/new": noteForm,
+  "/notes/archive": notesArchive,
 
   // Rubric routing
+  "/rubric": rubric,
   "/rubric/new": rubricForm,
+  "/rubric/archive": rubricArchive,
 
   // Task routing
-  "/task/new": taskForm
+  "/task": task,
+  "/task/new": taskForm,
+  "/task/archive": taskArchive
 });

@@ -21,11 +21,6 @@ userForm = (function() {
   ];
   var breadcrumbItems = [
     {
-      "link": "/?/dashboard",
-      "text": "Home",
-      "active": false
-    },
-    {
       "link": "/?/users",
       "text": "Utenti",
       "active": false
@@ -71,7 +66,8 @@ userForm = (function() {
   var breadcrumbBar = function() {
     return [
       m('ol', { class: 'breadcrumb' },
-        breadcrumbItems.map(breadcrumb)
+        breadcrumb(breadcrumbItems)
+        // breadcrumbItems.map(breadcrumb)
       )
     ];
   };

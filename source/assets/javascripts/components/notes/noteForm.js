@@ -1,22 +1,34 @@
 noteForm = (function() {
   var sideBarItems = [
     {
-      "icon": "fa-plus",
-      "link": "notes/new",
-      "title": "Aggiungi nota",
-      "active": true
-    },
-    {
       "icon": "fa-file-text-o",
-      "link": "notes",
+      "link": "/?/notes",
       "title": "Mostra lista delle note",
       "active": false
     },
     {
+      "icon": "fa-plus",
+      "link": "/?/notes/new",
+      "title": "Aggiungi nota",
+      "active": true
+    },
+    {
       "icon": "fa-archive",
-      "link": "notes/archive",
+      "link": "/?/notes/archive",
       "title": "Mostra note in archivio",
       "active": false
+    }
+  ];
+  var breadcrumbItems = [
+    {
+      "link": "/?/notes",
+      "text": "Appunti",
+      "active": false
+    },
+    {
+      "link": "/?/notes/new",
+      "text": "Aggiungi Nota",
+      "active": true
     }
   ];
   var content = function() {
@@ -45,11 +57,20 @@ noteForm = (function() {
     ];
   };
 
+  var breadcrumbBar = function() {
+    return [
+      m('ol', { class: 'breadcrumb' },
+        breadcrumb(breadcrumbItems)
+        // breadcrumbItems.map(breadcrumb)
+      )
+    ];
+  };
+
   return {
     controller: function(){
       var ctrl = this;
     },
-    view: mixinLayout(layout2, topNav, sidebarNav, content)
+    view: mixinLayout(layout2, topNav, sidebarNav, breadcrumbBar, content)
   };
 
 })();
