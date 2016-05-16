@@ -2,26 +2,26 @@ task = (function() {
   var sideBarItems = [
     {
       "icon": "fa-ticket",
-      "link": "/?/task",
+      "link": "/task",
       "title": "Mostra lista dei Task",
       "active": true
     },
     {
       "icon": "fa-plus",
-      "link": "/?/task/new",
+      "link": "/task/new",
       "title": "Crea Task",
       "active": false
     },
     {
       "icon": "fa-archive",
-      "link": "/?/task/archive",
+      "link": "/task/archive",
       "title": "Mostra Task in archivio",
       "active": false
     }
   ];
   var breadcrumbItems = [
     {
-      "link": "/?/task",
+      "link": "/task",
       "text": "Task",
       "active": true
     }
@@ -54,7 +54,8 @@ task = (function() {
   ];
   var content = function() {
     return [
-      m("section", { class: "items-list" }, [
+      m(m.component(toolBar)),
+      m(".items-list", [
         m('.wrapper .padding-10 .items-list__row', [
           m(".items-list__info", [
             m("span", { class: "column" }, "Ilaria Di Rosa"),

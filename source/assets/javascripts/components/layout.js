@@ -21,7 +21,9 @@ var topNav = function() {
               m('img', { src: '/assets/images/logo.png' })
             ])
           ]),
-          m('.collapse navbar-collapse navbar-right')
+          m('.collapse navbar-collapse navbar-right', 
+            m.component(avatar)
+          )
         ])
       ]);
     }

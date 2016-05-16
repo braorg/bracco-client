@@ -2,31 +2,31 @@ rubricArchive = (function() {
   var sideBarItems = [
     {
       "icon": "fa-users",
-      "link": "/?/rubric",
+      "link": "/rubric",
       "title": "Mostra tutti i Contatti",
       "active": false
     },
     {
       "icon": "fa-user-plus",
-      "link": "/?/rubric/new",
+      "link": "/rubric/new",
       "title": "Aggiungi Contatto",
       "active": false
     },
     {
       "icon": "fa-archive",
-      "link": "/?/rubric/archive",
+      "link": "/rubric/archive",
       "title": "Mostra Contatti in archivio",
       "active": true
     }
   ];
   var breadcrumbItems = [
     {
-      "link": "/?/rubric",
+      "link": "/rubric",
       "text": "Rubrica",
       "active": false
     },
     {
-      "link": "/?/rubric/archive",
+      "link": "/rubric/archive",
       "text": "Archivio",
       "active": true
     }
@@ -53,7 +53,8 @@ rubricArchive = (function() {
   ];
   var content = function() {
     return [
-      m("section", { class: "items-list" }, [
+      m(m.component(toolBar)),
+      m(".items-list", [
         m('.wrapper .padding-10 .items-list__row', [
           m(".items-list__info", [
             m("span", { class: "column" }, "Ilaria Di Rosa"),

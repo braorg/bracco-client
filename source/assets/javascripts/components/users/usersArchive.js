@@ -2,31 +2,31 @@ usersArchive = (function() {
   var sideBarItems = [
     {
       "icon": "fa-users",
-      "link": "/?/users",
+      "link": "/users",
       "title": "Mostra tutti gli utenti",
       "active": false
     },
     {
       "icon": "fa-user-plus",
-      "link": "/?/users/new",
+      "link": "/users/new",
       "title": "Aggiungi utente",
       "active": false
     },
     {
       "icon": "fa-archive",
-      "link": "/?/users/archive",
+      "link": "/users/archive",
       "title": "Mostra utenti in archivio",
       "active": true
     }
   ];
   var breadcrumbItems = [
     {
-      "link": "/?/users",
+      "link": "/users",
       "text": "Utenti",
       "active": false
     },
     {
-      "link": "/?/users/archive",
+      "link": "/users/archive",
       "text": "Archivio",
       "active": true
     }
@@ -53,7 +53,8 @@ usersArchive = (function() {
   ];
   var content = function() {
     return [
-      m("section", { class: "items-list" }, [
+      m(m.component(toolBar)),
+      m(".items-list", [
         m('.wrapper .padding-10 .items-list__row', [
           m(".items-list__info", [
             m("span", { class: "column" }, "Ilaria Di Rosa"),

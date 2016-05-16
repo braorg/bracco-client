@@ -2,31 +2,31 @@ rubricForm = (function() {
   var sideBarItems = [
     {
       "icon": "fa-users",
-      "link": "/?/rubric",
+      "link": "/rubric",
        "title": "Mostra Contatti della Rubrica",
       "active": false
     },
     {
       "icon": "fa-user-plus",
-      "link": "/?/rubric/new",
+      "link": "/rubric/new",
       "title": "Aggiungi Contatto",
       "active": true
     },
     {
       "icon": "fa-archive",
-      "link": "/?/rubric/archive",
+      "link": "/rubric/archive",
       "title": "Mostra Contatti in archivio",
       "active": false
     }
   ];
   var breadcrumbItems = [
     {
-      "link": "/?/rubric",
+      "link": "/rubric",
       "text": "Rubrica",
       "active": false
     },
     {
-      "link": "/?/rubric/new",
+      "link": "/rubric/new",
       "text": "Aggiungi Contatto",
       "active": true
     }

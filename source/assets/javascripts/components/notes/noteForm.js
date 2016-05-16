@@ -2,31 +2,31 @@ noteForm = (function() {
   var sideBarItems = [
     {
       "icon": "fa-file-text-o",
-      "link": "/?/notes",
+      "link": "/notes",
       "title": "Mostra lista delle note",
       "active": false
     },
     {
       "icon": "fa-plus",
-      "link": "/?/notes/new",
+      "link": "/notes/new",
       "title": "Aggiungi nota",
       "active": true
     },
     {
       "icon": "fa-archive",
-      "link": "/?/notes/archive",
+      "link": "/notes/archive",
       "title": "Mostra note in archivio",
       "active": false
     }
   ];
   var breadcrumbItems = [
     {
-      "link": "/?/notes",
+      "link": "/notes",
       "text": "Appunti",
       "active": false
     },
     {
-      "link": "/?/notes/new",
+      "link": "/notes/new",
       "text": "Aggiungi Nota",
       "active": true
     }

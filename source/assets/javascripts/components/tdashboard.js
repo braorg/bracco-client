@@ -1,24 +1,50 @@
 dashboard = (function() {
+
+  var dashboardItems = [
+    {
+      "image": "assets/images/ico-ticket.png",
+      "title": "Task",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit." +
+                    "Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis." +
+                    "Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+      "link": "/task",
+      "btn": "Vai ai task"
+    },
+    {
+      "image": "assets/images/ico-notes.png",
+      "title": "Appunti",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit." +
+                    "Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis." +
+                    "Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+      "link": "/notes",
+      "btn": "Vai agli appunti"
+    },
+    {
+      "image": "assets/images/ico-rubric.png",
+      "title": "Rubrica",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit." +
+                    "Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis." +
+                    "Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+      "link": "/rubric",
+      "btn": "Vai alla rubrica"
+    },
+    {
+      "image": "assets/images/ico-users.png",
+      "title": "Amministrazione Utenti",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit." +
+                    "Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis." +
+                    "Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+      "link": "/users",
+      "btn": "Vai alla lista"
+    }
+  ];
+
   var content = function() {
     return [
-      m(".row", [
-        m(".col-sm-6", [
-          m(".wrapper padding-15", [
-            m(".media media-dashboard", [
-              m(".media-left", [
-                m("img", { src: "assets/images/ico-ticket.png" })
-              ]),
-              m(".media-body", [
-                m("h4", { class: "media-heading" }, "Task"),
-                m("p", { class: "media-description" },
-                "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio."),
-                m("a", { class: "media-btn btn btn-success btn-sm", href: "task-calendar.html" }, "Vai ai task")
-              ])
-            ])
-          ])
-        ])
-      ])
-		];
+      m(".row",
+        dashboardItems.map(dashboardBox)
+      )
+    ];
   };
 
   return {

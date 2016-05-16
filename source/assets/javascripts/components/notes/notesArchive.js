@@ -2,31 +2,31 @@ notesArchive = (function() {
   var sideBarItems = [
     {
       "icon": "fa-file-text-o",
-      "link": "/?/notes",
+      "link": "/notes",
       "title": "Mostra lista delle note",
       "active": false
     },
     {
       "icon": "fa-plus",
-      "link": "/?/notes/new",
+      "link": "/notes/new",
       "title": "Aggiungi nota",
       "active": false
     },
     {
       "icon": "fa-archive",
-      "link": "/?/notes/archive",
+      "link": "/notes/archive",
       "title": "Mostra note in archivio",
       "active": true
     }
   ];
   var breadcrumbItems = [
     {
-      "link": "/?/notes",
+      "link": "/notes",
       "text": "Appunti",
       "active": false
     },
     {
-      "link": "/?/notes/archive",
+      "link": "/notes/archive",
       "text": "Archivio",
       "active": true
     }
@@ -53,7 +53,8 @@ notesArchive = (function() {
   ];
   var content = function() {
     return [
-      m("section", { class: "items-list" }, [
+      m(m.component(toolBar)),
+      m(".items-list", [
         m('.wrapper .padding-10 .items-list__row', [
           m(".items-list__info", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. [...]"),
           m(".items-list__buttons", buttonsItems.map(button))

@@ -2,31 +2,31 @@ userForm = (function() {
   var sideBarItems = [
     {
       "icon": "fa-users",
-      "link": "/?/users",
+      "link": "/users",
       "title": "Mostra tutti gli utenti",
       "active": false
     },
     {
       "icon": "fa-user-plus",
-      "link": "/?/users/new",
+      "link": "/users/new",
       "title": "Aggiungi utente",
       "active": true
     },
     {
       "icon": "fa-archive",
-      "link": "/?/users/archive",
+      "link": "/users/archive",
       "title": "Mostra utenti in archivio",
       "active": false
     }
   ];
   var breadcrumbItems = [
     {
-      "link": "/?/users",
+      "link": "/users",
       "text": "Utenti",
       "active": false
     },
     {
-      "link": "/?/users/new",
+      "link": "/users/new",
       "text": "Aggiungi Utente",
       "active": true
     }
