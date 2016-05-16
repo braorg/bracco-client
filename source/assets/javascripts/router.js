@@ -1,23 +1,15 @@
-// m.route(document.getElementById('app'), '/', {
-//
-//   '/': layout,
-//
-//   '/users/new': userForm,
-//
-//   '/contacts/new': contactForm,
-//
-//   '/notes/new': noteForm
-//
-// })
-
-
-// m.route(document.getElementById('app'), '/', {
-//   '/': { view: viewTemplate() },
-//   '/1': loginForm,
-//   '/2': component2,
-// })
-
 m.route(document.getElementById('app'), "/", {
-    "/": loginForm
-    //"/bar": loginForm
+  // Users routing
+  "/": loginForm,
+  "/users": users,
+  "/users/new": userForm,
+
+  // Notes routing
+  "/notes/new": noteForm,
+
+  // Rubric routing
+  "/rubric/new": rubricForm,
+
+  // Task routing
+  "/task/new": taskForm
 });

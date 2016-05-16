@@ -1,28 +1,52 @@
-var noteForm = {
-  controller: function(){
-    var ctrl = this;
-  },
-  view: function(ctrl){
+noteForm = (function() {
+  var sideBarItems = [
+    {
+      "icon": "fa-plus",
+      "link": "notes/new",
+      "active": true
+    },
+    {
+      "icon": "fa-file-text-o",
+      "link": "notes",
+      "active": false
+    },
+    {
+      "icon": "fa-archive",
+      "link": "notes/archive",
+      "active": false
+    }
+  ];
+  var content = function() {
     return [
-			m("form", { class: 'text-center form-customized' }, [
-        m.component(textField, { type: 'text', placeholder: 'Titolo', id: 'note-title' }),
-        m(".form-group", [
-          m("textarea", { rows: '7', class: 'form-control', placeholder: 'Descrizione' })
-        ]),
-        m("button[type=submit]", {
-          class: 'btn btn-success btn-lg'
-        }, "Crea Appunto" )
+      m('.col-sm-10 .col-md-8 .center-block', [
+        m('.wrapper .padding-30', [
+          m("form", { class: 'text-center form-customized' }, [
+            m.component(textField, { type: 'text', placeholder: 'Titolo', id: 'note-title' }),
+            m(".form-group", [
+              m("textarea", { rows: '7', class: 'form-control', placeholder: 'Descrizione' })
+            ]),
+            m("button[type=submit]", {
+              class: 'btn btn-success btn-lg'
+            }, "Crea Appunto" )
+          ])
+        ])
       ])
 		];
-  }
-}
-
-$(document).ready(function() {
-
-  var noteBox = document.getElementById("noteForm");
-
-  if(noteBox){
-    m.module(noteBox, noteForm);
   };
 
-})
+  var sidebarNav = function() {
+    return [
+      m('ul', { class: 'nav nav-pills nav-stacked sidebar-nav' },
+        sideBarItems.map(sideBarItem)
+      )
+    ];
+  };
+
+  return {
+    controller: function(){
+      var ctrl = this;
+    },
+    view: mixinLayout(layout2, topNav, sidebarNav, content)
+  };
+
+})();

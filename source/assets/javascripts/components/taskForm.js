@@ -1,0 +1,90 @@
+taskForm = (function() {
+  var sideBarItems = [
+    {
+      "icon": "fa-plus",
+      "link": "task/new",
+      "active": true
+    },
+    {
+      "icon": "fa-ticket",
+      "link": "task",
+      "active": false
+    },
+    {
+      "icon": "fa-archive",
+      "link": "task/archive",
+      "active": false
+    }
+  ];
+  var content = function() {
+    return [
+      m(".col-sm-10 .col-md-8 .center-block", [
+        m(".wrapper .padding-30", [
+          m("form", { class: 'text-center form-customized' }, [
+            m(".row", [
+              m(".col-sm-6", [
+                m(".input-group", [
+                  m("span", { class: 'input-group-addon', id: 'sizing-addon1' }, [
+                    m("i", { class: 'fa fa-upload', 'aria-hidden': 'true' })
+                  ]),
+                  m.component(textField, { type: 'text', placeholder: 'Mittente', id: '' }),
+                ])
+              ]),
+              m(".col-sm-6", [
+                m("select", { class: 'form-control' }, [
+                  m("option", "Roberto Petrucci"),
+                  m("option", "Roberto Petrucci"),
+                  m("option", "Roberto Petrucci"),
+                  m("option", "Roberto Petrucci")
+                ])
+              ])
+            ]),
+            m(".form-group", [
+              m.component(textField, { type: 'text', placeholder: 'Titolo', id: '' }),
+            ]),
+            m(".form-group", [
+              m("textarea", { rows: '7', class: 'form-control', placeholder: 'Descrizione' })
+            ]),
+            m(".row", [
+              m(".col-sm-6", [
+                m(".input-group", [
+                  m("span", { class: 'input-group-addon', id: 'sizing-addon1' }, [
+                    m("i", { class: 'fa fa-paperclip', 'aria-hidden': 'true' })
+                  ]),
+                  m.component(textField, { type: 'file', placeholder: 'Allegato', id: '' }),
+                ])
+              ]),
+              m(".col-sm-6", [
+                m(".input-group", [
+                  m("span", { class: 'input-group-addon', id: 'sizing-addon1' }, [
+                    m("i", { class: 'fa fa-calendar', 'aria-hidden': 'true' })
+                  ]),
+                  m.component(textField, { type: 'date', placeholder: 'Scadenza', id: '' }),
+                ])
+              ])
+            ]),
+            m("button[type=submit]", {
+              class: 'btn btn-success btn-lg'
+            }, "Crea Task" )
+          ])
+        ])
+      ])
+		];
+  };
+
+  var sidebarNav = function() {
+    return [
+      m('ul', { class: 'nav nav-pills nav-stacked sidebar-nav' },
+        sideBarItems.map(sideBarItem)
+      )
+    ];
+  };
+
+  return {
+    controller: function(){
+      var ctrl = this;
+    },
+    view: mixinLayout(layout2, topNav, sidebarNav, content)
+  };
+
+})();

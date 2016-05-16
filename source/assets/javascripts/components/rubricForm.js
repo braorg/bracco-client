@@ -1,18 +1,18 @@
-userForm = (function() {
+rubricForm = (function() {
   var sideBarItems = [
     {
       "icon": "fa-user-plus",
-      "link": "/?/users/new",
+      "link": "rubric/new",
       "active": true
     },
     {
       "icon": "fa-users",
-      "link": "/?/users",
+      "link": "rubric",
       "active": false
     },
     {
       "icon": "fa-archive",
-      "link": "/?/users/archive",
+      "link": "rubric/archive",
       "active": false
     }
   ];
@@ -23,17 +23,14 @@ userForm = (function() {
           m("form", { class: 'text-center form-customized' }, [
             m.component(textField, { type: 'text', placeholder: 'Nome', id: 'name' }),
             m.component(textField, { type: 'text', placeholder: 'Cognome', id: 'surname' }),
-            m.component(textField, { type: 'email', placeholder: 'Username', id: 'username' }),
             m.component(textField, { type: 'email', placeholder: 'Email', id: 'email' }),
-            m.component(textField, { type: 'password', placeholder: 'Password', id: 'password' }),
-            m.component(textField, { type: 'password', placeholder: 'Confirm Password', id: 'confirm-password' }),
-            m("select", { class: 'form-control'}, [
-              m("option", "Amministratore"),
-              m("option", "Dipendete")
-            ]),
+            m.component(textField, { type: 'tel', placeholder: 'Tel. Casa', id: 'home-phone' }),
+            m.component(textField, { type: 'tel', placeholder: 'Tel. Ufficio', id: 'office-phone' }),
+            m.component(textField, { type: 'tel', placeholder: 'Cellulare', id: 'cell-phone' }),
+            m.component(textField, { type: 'tel', placeholder: 'Fax', id: 'fax' }),
             m("button[type=submit]", {
               class: 'btn btn-success btn-lg'
-            }, "Crea Account" )
+            }, "Crea Contatto" )
           ])
         ])
       ])
