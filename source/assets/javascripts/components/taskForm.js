@@ -3,16 +3,19 @@ taskForm = (function() {
     {
       "icon": "fa-plus",
       "link": "task/new",
+      "title": "Crea Task",
       "active": true
     },
     {
       "icon": "fa-ticket",
       "link": "task",
+      "title": "Mostra lista dei Task",
       "active": false
     },
     {
       "icon": "fa-archive",
       "link": "task/archive",
+      "title": "Mostra Task in archivio",
       "active": false
     }
   ];

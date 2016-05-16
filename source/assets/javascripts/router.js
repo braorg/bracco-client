@@ -1,8 +1,11 @@
 m.route(document.getElementById('app'), "/", {
-  // Users routing
+  // Login routing
   "/": loginForm,
+
+  // Users routing
   "/users": users,
   "/users/new": userForm,
+  "/users/archive": usersArchive,
 
   // Notes routing
   "/notes/new": noteForm,

@@ -3,16 +3,19 @@ userForm = (function() {
     {
       "icon": "fa-user-plus",
       "link": "/?/users/new",
+      "title": "Aggiungi utente",
       "active": true
     },
     {
       "icon": "fa-users",
       "link": "/?/users",
+      "title": "Mostra tutti gli utenti",
       "active": false
     },
     {
       "icon": "fa-archive",
       "link": "/?/users/archive",
+      "title": "Mostra utenti in archivio",
       "active": false
     }
   ];

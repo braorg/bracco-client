@@ -3,16 +3,19 @@ noteForm = (function() {
     {
       "icon": "fa-plus",
       "link": "notes/new",
+      "title": "Aggiungi nota",
       "active": true
     },
     {
       "icon": "fa-file-text-o",
       "link": "notes",
+      "title": "Mostra lista delle note",
       "active": false
     },
     {
       "icon": "fa-archive",
       "link": "notes/archive",
+      "title": "Mostra note in archivio",
       "active": false
     }
   ];

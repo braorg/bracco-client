@@ -2,17 +2,20 @@ rubricForm = (function() {
   var sideBarItems = [
     {
       "icon": "fa-user-plus",
-      "link": "rubric/new",
+      "link": "/?/rubric/new",
+      "title": "Aggiungi Contatto",
       "active": true
     },
     {
       "icon": "fa-users",
-      "link": "rubric",
+      "link": "/?/rubric",
+       "title": "Mostra Contatti della Rubrica",
       "active": false
     },
     {
       "icon": "fa-archive",
-      "link": "rubric/archive",
+      "link": "/?/rubric/archive",
+      "title": "Mostra Contatti in archivio",
       "active": false
     }
   ];

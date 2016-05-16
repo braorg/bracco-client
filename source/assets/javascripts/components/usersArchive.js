@@ -1,4 +1,4 @@
-users = (function() {
+usersArchive = (function() {
   var sideBarItems = [
     {
       "icon": "fa-user-plus",
@@ -10,13 +10,13 @@ users = (function() {
       "icon": "fa-users",
       "link": "/?/users",
       "title": "Mostra tutti gli utenti",
-      "active": true
+      "active": false
     },
     {
       "icon": "fa-archive",
       "link": "/?/users/archive",
       "title": "Mostra utenti in archivio",
-      "active": false
+      "active": true
     }
   ];
   var buttonsItems = [
@@ -27,14 +27,8 @@ users = (function() {
       "btnClass": "btn-info"
     },
     {
-      "icon": "fa-pencil",
-      "title": "Modifica",
-      "link": "/?/users/modify-123",
-      "btnClass": "btn-info"
-    },
-    {
-      "icon": "fa-archive",
-      "title": "Archivia",
+      "icon": "fa-reply",
+      "title": "Ripristina",
       "link": "/?/users/archive-123",
       "btnClass": "btn-warning"
     },

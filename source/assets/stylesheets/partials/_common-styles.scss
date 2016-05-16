@@ -156,6 +156,12 @@ textarea::-webkit-input-placeholder {
     @include respond-to(max-width, 768px) {
       margin-top: 10px;
     }
+    & > a{
+      margin-right: 5px;
+      &:last-child{
+        margin-right: 0;
+      }
+    }
   }
 }
 
