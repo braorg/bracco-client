@@ -2,6 +2,9 @@ m.route(document.getElementById('app'), "/", {
   // Login routing
   "/": loginForm,
 
+  // Dashboard
+  "/dashboard": dashboard,
+
   // Users routing
   "/users": users,
   "/users/new": userForm,
