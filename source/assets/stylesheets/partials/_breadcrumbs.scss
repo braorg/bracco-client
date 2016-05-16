@@ -15,7 +15,9 @@
     // }
     li{
       &.active{
-        @include font-style(12px, #21abc7);
+        a{
+          @include font-style(12px, #21abc7);
+        }
       }
       a{
         @include font-style(12px, white);

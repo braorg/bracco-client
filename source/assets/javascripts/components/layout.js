@@ -32,6 +32,10 @@ var sidebarNav = function() {
   return [];
 };
 
+var breadcrumbBar = function() {
+  return [];
+};
+
 var layout = function(topNav, sidebarNav, content) {
   return [
     m.component(topNav),
@@ -41,20 +45,25 @@ var layout = function(topNav, sidebarNav, content) {
   ]
 };
 
-var layout2 = function(topNav, sidebarNav, content) {
+var layout2 = function(topNav, sidebarNav, breadcrumbBar, content) {
   return [
     m.component(topNav),
     m('aside', { class: 'sidebar', id: 'sidebarNav' }, [
       m('nav', sidebarNav)
     ]),
     m('main', { class: 'main-container centered'}, [
-      m('.container', content)
+      m("section", { class: "breadcrumb-bar" }, [
+        m(".container", breadcrumbBar)
+      ]),
+      m("section", [
+        m('.container', content)
+      ])
     ])
   ]
 };
 
-var mixinLayout = function(layout, topNav, sidebarNav, content) {
+var mixinLayout = function(layout, topNav, sidebarNav, breadcrumbBar, content) {
   return function() {
-    return layout(topNav(), sidebarNav(), content());
+    return layout(topNav(), sidebarNav(), breadcrumbBar(), content());
   };
 };

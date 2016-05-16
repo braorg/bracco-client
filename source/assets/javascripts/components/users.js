@@ -1,22 +1,34 @@
 users = (function() {
   var sideBarItems = [
     {
-      "icon": "fa-user-plus",
-      "link": "/?/users/new",
-      "title": "Aggiungi utente",
-      "active": false
-    },
-    {
       "icon": "fa-users",
       "link": "/?/users",
       "title": "Mostra tutti gli utenti",
       "active": true
     },
     {
+      "icon": "fa-user-plus",
+      "link": "/?/users/new",
+      "title": "Aggiungi utente",
+      "active": false
+    },
+    {
       "icon": "fa-archive",
       "link": "/?/users/archive",
       "title": "Mostra utenti in archivio",
       "active": false
+    }
+  ];
+  var breadcrumbItems = [
+    {
+      "link": "/?/dashboard",
+      "text": "Home",
+      "active": false
+    },
+    {
+      "link": "/?/users",
+      "text": "Users",
+      "active": true
     }
   ];
   var buttonsItems = [
@@ -69,11 +81,19 @@ users = (function() {
     ];
   };
 
+  var breadcrumbBar = function() {
+    return [
+      m('ol', { class: 'breadcrumb' },
+        breadcrumbItems.map(breadcrumb)
+      )
+    ];
+  };
+
   return {
     controller: function(){
       var ctrl = this;
     },
-    view: mixinLayout(layout2, topNav, sidebarNav, content)
+    view: mixinLayout(layout2, topNav, sidebarNav, breadcrumbBar, content)
   };
 
 })();

@@ -1,21 +1,38 @@
 usersArchive = (function() {
   var sideBarItems = [
     {
-      "icon": "fa-user-plus",
-      "link": "/?/users/new",
-      "title": "Aggiungi utente",
-      "active": false
-    },
-    {
       "icon": "fa-users",
       "link": "/?/users",
       "title": "Mostra tutti gli utenti",
       "active": false
     },
     {
+      "icon": "fa-user-plus",
+      "link": "/?/users/new",
+      "title": "Aggiungi utente",
+      "active": false
+    },
+    {
       "icon": "fa-archive",
       "link": "/?/users/archive",
       "title": "Mostra utenti in archivio",
+      "active": true
+    }
+  ];
+  var breadcrumbItems = [
+    {
+      "link": "/?/dashboard",
+      "text": "Home",
+      "active": false
+    },
+    {
+      "link": "/?/users",
+      "text": "Utenti",
+      "active": false
+    },
+    {
+      "link": "/?/users/archive",
+      "text": "Archivio",
       "active": true
     }
   ];
@@ -63,11 +80,19 @@ usersArchive = (function() {
     ];
   };
 
+  var breadcrumbBar = function() {
+    return [
+      m('ol', { class: 'breadcrumb' },
+        breadcrumbItems.map(breadcrumb)
+      )
+    ];
+  };
+
   return {
     controller: function(){
       var ctrl = this;
     },
-    view: mixinLayout(layout2, topNav, sidebarNav, content)
+    view: mixinLayout(layout2, topNav, sidebarNav, breadcrumbBar, content)
   };
 
 })();
