@@ -1,10 +1,10 @@
-notes = (function() {
+noteShow = (function() {
   var sideBarItems = [
     {
       "icon": "fa-file-text-o",
       "link": "/notes",
       "title": "Mostra lista delle note",
-      "active": true
+      "active": false
     },
     {
       "icon": "fa-plus",
@@ -23,42 +23,28 @@ notes = (function() {
     {
       "link": "/notes",
       "text": "Appunti",
+      "active": false
+    },
+    {
+      "link": "/notes/new",
+      "text": "Titolo della nota",
       "active": true
     }
   ];
-  var buttonsItems = [
-    {
-      "icon": "fa-eye",
-      "title": "Mostra dettagli",
-      "link": "/users/view-123",
-      "btnClass": "btn-info"
-    },
-    {
-      "icon": "fa-pencil",
-      "title": "Modifica",
-      "link": "/users/modify-123",
-      "btnClass": "btn-info"
-    },
-    {
-      "icon": "fa-archive",
-      "title": "Archivia",
-      "link": "/users/archive-123",
-      "btnClass": "btn-warning"
-    },
-    {
-      "icon": "fa-trash-o",
-      "title": "Elimina",
-      "link": "/users/delete-123",
-      "btnClass": "btn-danger"
-    }
-  ];
-  var content = function() {
+  var content = function(ctrl) {
     return [
-      m(m.component(toolBar)),
-      m(".items-list", [
-        m('.wrapper .padding-10 .items-list__row', [
-          m(".items-list__info", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. [...]"),
-          m(".items-list__buttons", buttonsItems.map(button))
+      m(".col-sm-10 .col-md-8 .center-block", [
+        m(".wrapper", { id: ctrl.note.id }, [
+          m(".padding-30", [
+            m("h3", { class: "no-margin-top decorator" }, ctrl.note.title),
+            m("p", { class: "no-margin-bottom decorator" }, ctrl.note.description)
+          ]),
+          m(".bottom-band padding-15", [
+            m(".row", [
+              m(".col-md-6", "Data di creazione: " + ctrl.note.createdAt),
+              m(".col-md-6", "Data Ultima modifica: " + ctrl.note.updatedAt)
+            ])
+          ])
         ])
       ])
 		];
@@ -83,6 +69,13 @@ notes = (function() {
   return {
     controller: function(){
       var ctrl = this;
+      ctrl.note = {
+        id: m.route.param("noteId"),
+        title: "Title",
+        description: "description",
+        createdAt: "23 Luglio 2015",
+        updatedAt: "24 Luglio 2015"
+      };
     },
     view: mixinLayout(layout2, topNav, sidebarNav, breadcrumbBar, content)
   };

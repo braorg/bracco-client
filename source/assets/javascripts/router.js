@@ -12,9 +12,11 @@ m.route(document.getElementById('app'), "/", {
   "/users/:userId/edit": usersArchive,
 
   // Notes routing
-  "/notes": notes,
+  "/notes": notesList,
   "/notes/new": noteForm,
   "/notes/archive": notesArchive,
+  "/notes/:noteId": noteShow,
+  // "/notes/:userId/edit": noteDetails,
 
   // Rubric routing
   "/rubric": rubric,

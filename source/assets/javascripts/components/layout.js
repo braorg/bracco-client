@@ -21,7 +21,7 @@ var topNav = function() {
               m('img', { src: '/assets/images/logo.png' })
             ])
           ]),
-          m('.collapse navbar-collapse navbar-right', 
+          m('.collapse navbar-collapse navbar-right',
             m.component(avatar)
           )
         ])
@@ -65,7 +65,7 @@ var layout2 = function(topNav, sidebarNav, breadcrumbBar, content) {
 };
 
 var mixinLayout = function(layout, topNav, sidebarNav, breadcrumbBar, content) {
-  return function() {
-    return layout(topNav(), sidebarNav(), breadcrumbBar(), content());
+  return function(ctrl) {
+    return layout(topNav(), sidebarNav(), breadcrumbBar(), content(ctrl));
   };
 };
