@@ -19,18 +19,25 @@ notesArchive = (function() {
       "active": true
     }
   ];
-  var breadcrumbItems = [
-    {
-      "link": "/notes",
-      "text": "Appunti",
-      "active": false
-    },
-    {
-      "link": "/notes/archive",
-      "text": "Archivio",
-      "active": true
+  // var breadcrumbItems = [
+  //   {
+  //     "link": "/notes",
+  //     "text": "Appunti",
+  //     "active": false
+  //   },
+  //   {
+  //     "link": "/notes/archive",
+  //     "text": "Archivio",
+  //     "active": true
+  //   }
+  // ];
+  var breadcrumb = {
+    slugs: m.route(),
+    translation: {
+      "notes": "Note",
+      "archive": "Archivio"
     }
-  ];
+  };
   var buttonsItems = [
     {
       "icon": "fa-eye",
