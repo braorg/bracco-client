@@ -19,18 +19,38 @@ userForm = (function() {
       "active": false
     }
   ];
-  var breadcrumbItems = [
-    {
-      "link": "/users",
-      "text": "Utenti",
-      "active": false
+
+  var breadcrumbSlugTranslations = {
+    "users": {
+      text: "Utenti",
+      link: "/users",
+      active: false
     },
-    {
-      "link": "/users/new",
-      "text": "Aggiungi Utente",
-      "active": true
+    "new": {
+      text: "Aggiungi utente",
+      link: "/users/new",
+      active: true
     }
-  ];
+  };
+
+  var breadcrumbItems = function() {
+    var url = m.route();
+    var slugs = url.split("/");
+    return slugs.filter(function(slug) {
+      return slug != ""
+    }).map(function(slug){
+      return breadcrumbSlugTranslations[slug]
+    });
+  };
+
+  var breadcrumbBar = function() {
+    return [
+      m('ol', { class: 'breadcrumb' },
+        breadcrumb(breadcrumbItems())
+      )
+    ];
+  };
+
   var content = function() {
     return [
       m('.col-xs-12 .col-sm-7 .col-md-4 .center-block', [
@@ -59,15 +79,6 @@ userForm = (function() {
     return [
       m('ul', { class: 'nav nav-pills nav-stacked sidebar-nav' },
         sideBarItems.map(sideBarItem)
-      )
-    ];
-  };
-
-  var breadcrumbBar = function() {
-    return [
-      m('ol', { class: 'breadcrumb' },
-        breadcrumb(breadcrumbItems)
-        // breadcrumbItems.map(breadcrumb)
       )
     ];
   };
