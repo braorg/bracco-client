@@ -19,51 +19,43 @@ usersArchive = (function() {
       "active": true
     }
   ];
-  var breadcrumbItems = [
-    {
-      "link": "/users",
-      "text": "Utenti",
-      "active": false
+
+  var breadcrumbSlugTranslations = {
+    "users": {
+      text: "Utenti",
+      link: "/users",
+      active: false
     },
-    {
-      "link": "/users/archive",
-      "text": "Archivio",
-      "active": true
+    "archive": {
+      text: "Archivio",
+      link: "/archive",
+      active: true
     }
-  ];
-  var buttonsItems = [
-    {
-      "icon": "fa-eye",
-      "title": "Mostra dettagli",
-      "link": "/users/view-123",
-      "btnClass": "btn-info"
-    },
-    {
-      "icon": "fa-reply",
-      "title": "Ripristina",
-      "link": "/users/archive-123",
-      "btnClass": "btn-warning"
-    },
-    {
-      "icon": "fa-trash-o",
-      "title": "Elimina",
-      "link": "/users/delete-123",
-      "btnClass": "btn-danger"
-    }
-  ];
+  };
+
+  var breadcrumbItems = function() {
+    var url = m.route();
+    var slugs = url.split("/");
+    return slugs.filter(function(slug) {
+      return slug != ""
+    }).map(function(slug){
+      return breadcrumbSlugTranslations[slug]
+    });
+  };
+
+  var breadcrumbBar = function() {
+    return [
+      m('ol', { class: 'breadcrumb' },
+        breadcrumb(breadcrumbItems())
+      )
+    ];
+  };
+
   var content = function() {
     return [
-      m(m.component(toolBar)),
+      m(toolBar),
       m(".items-list", [
-        m('.wrapper .padding-10 .items-list__row', [
-          m(".items-list__info", [
-            m("span", { class: "column" }, "Ilaria Di Rosa"),
-            m("span", { class: "column" }, "iladiro"),
-            m("span", { class: "column" }, "angels88"),
-            m("span", { class: "column" }, "dirosa.ilaria@gmail.com")
-          ]),
-          m(".items-list__buttons", buttonsItems.map(button))
-        ])
+        m(userItem)
       ])
 		];
   };
@@ -72,14 +64,6 @@ usersArchive = (function() {
     return [
       m('ul', { class: 'nav nav-pills nav-stacked sidebar-nav' },
         sideBarItems.map(sideBarItem)
-      )
-    ];
-  };
-
-  var breadcrumbBar = function() {
-    return [
-      m('ol', { class: 'breadcrumb' },
-        breadcrumb(breadcrumbItems)
       )
     ];
   };

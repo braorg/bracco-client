@@ -3,6 +3,6 @@
 //= require vendor/moment.min
 //= require vendor/fullcalendar
 //= require vendor/mithril.min
-//= require_tree ./components
+//= require components
 //= require bootstrap
 //= require main

@@ -173,4 +173,5 @@ textarea::-webkit-input-placeholder {
   @include border(1px, #e6e6e6);
   height: auto;
   @include box-shadow(none);
+  padding: 10px 12px;
 }

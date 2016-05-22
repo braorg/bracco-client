@@ -1,5 +1,11 @@
-userForm = (function() {
+userEdit = (function() {
   var sideBarItems = [
+    {
+      "icon": "fa-user",
+      "link": "/users",
+      "title": "Mostra tutti gli utenti",
+      "active": true
+    },
     {
       "icon": "fa-users",
       "link": "/users",
@@ -10,7 +16,7 @@ userForm = (function() {
       "icon": "fa-user-plus",
       "link": "/users/new",
       "title": "Aggiungi utente",
-      "active": true
+      "active": false
     },
     {
       "icon": "fa-archive",
@@ -26,8 +32,13 @@ userForm = (function() {
       link: "/users",
       active: false
     },
-    "new": {
-      text: "Aggiungi utente",
+    "2": {
+      text: "2",
+      link: "/users",
+      active: false
+    },
+    "edit": {
+      text: "Modifica Utente",
       link: "/users/new",
       active: true
     }
@@ -68,7 +79,7 @@ userForm = (function() {
             ]),
             m("button[type=submit]", {
               class: 'btn btn-success btn-lg'
-            }, "Crea Utente" )
+            }, "Modifica Utente" )
           ])
         ])
       ])

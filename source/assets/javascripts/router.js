@@ -9,14 +9,15 @@ m.route(document.getElementById('app'), "/", {
   "/users": usersList,
   "/users/new": userForm,
   "/users/archive": usersArchive,
-  "/users/:userId/edit": usersArchive,
+  "/users/:userId": userShow,
+  "/users/:userId/edit": userEdit,
 
   // Notes routing
   "/notes": notesList,
   "/notes/new": noteForm,
   "/notes/archive": notesArchive,
   "/notes/:noteId": noteShow,
-  // "/notes/:userId/edit": noteDetails,
+  "/notes/:noteId/edit": noteForm,
 
   // Rubric routing
   "/rubric": rubric,
