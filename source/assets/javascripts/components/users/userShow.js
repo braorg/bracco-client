@@ -1,7 +1,5 @@
 userShow = (function() {
 
-  var id = "2";
-
   var sideBarItems = [
     {
       "icon": "fa-users",
@@ -57,13 +55,13 @@ userShow = (function() {
   var content = function(ctrl) {
     return [
       m(".col-xs-12 .col-sm-7 .col-md-4 .center-block", [
-        m(".wrapper .padding-30", { id: ctrl.user.id }, [
-          m("p", { class: "no-margin-top decorator" }, ctrl.user.name),
-          m("p", { class: "no-margin-top decorator" }, ctrl.user.surname),
-          m("p", { class: "no-margin-top decorator" }, ctrl.user.username),
-          m("p", { class: "no-margin-top decorator" }, ctrl.user.email),
-          m("p", { class: "no-margin-top decorator", "data-type": "password" }, ctrl.hiddenPsw()),
-          m("p", { class: "no-margin decorator" }, ctrl.user.profile_id)
+        m(".wrapper .padding-30", { id: ctrl.users().id }, [
+          m("p", { class: "no-margin-top decorator" }, ctrl.users().first_name + " " + ctrl.users().last_name),
+          m("p", { class: "no-margin-top decorator" }, ctrl.users().username),
+          m("p", { class: "no-margin-top decorator" }, ctrl.users().email),
+          // m("p", { class: "no-margin-top decorator", "data-type": "password" }, ctrl.hiddenPsw()),
+          // m("p", { class: "no-margin decorator" }, ctrl.user.profile_id),
+          m("img", { src: ctrl.users().avatar_url, class: "img-responsive decorator" })
         ])
       ])
 		];
@@ -79,18 +77,17 @@ userShow = (function() {
 
   return {
     controller: function(){
-
       var ctrl = this;
-
-      ctrl.user = {
-        id: m.route.param("userId"),
-        name: "Ilaria",
-        surname: "Di Rosa",
-        username: "iladiro",
-        email: "dirosa.ilaria@gmail.com",
-        password: "angels88",
-        profile_id: "Amministratore"
-      };
+      ctrl.users = m.request({
+        method: "GET",
+        url: "http://localhost:4000/api/users/2",
+        unwrapSuccess: function(response) {
+          return response.data;
+        },
+        unwrapError: function(response) {
+          return response.error;
+        }
+      });
 
       ctrl.hiddenPsw = function(){
         return ctrl.user.password.replace(/./g, "•");

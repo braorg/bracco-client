@@ -46,12 +46,14 @@ usersList = (function() {
     ];
   };
 
-  var content = function() {
+  var content = function(ctrl) {
     return [
       m(toolBar),
-      m(".items-list", [
-        m(userItem)
-      ])
+      m(".items-list",
+        ctrl.users().map(function(user) {
+          return m(userItem, user);
+        })
+      )
 		];
   };
 
@@ -66,6 +68,16 @@ usersList = (function() {
   return {
     controller: function(){
       var ctrl = this;
+      ctrl.users = m.request({
+        method: "GET",
+        url: "http://localhost:4000/api/users",
+        unwrapSuccess: function(response) {
+          return response.data;
+        },
+        unwrapError: function(response) {
+          return response.error;
+        }
+      });
     },
     view: mixinLayout(layout2, topNav, sidebarNav, breadcrumbBar, content)
   };

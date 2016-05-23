@@ -1,25 +1,31 @@
 var userItem = {
-  model: {
-    id: "2"
-  },
-  controller: function(){
+  controller: function(user){
+    this.user = user;
     this.archive = function() {
       alert("Archive");
     };
     this.delete = function() {
       alert("Delete");
+      // return m(".modal fade", { tabindex: "-1", role: "dialog",
+      // "aria-labelledby": "myModalLabel", id: "myModal" }, [
+      //   m(".modal-dialog", [
+      //     m(".modal-content", [
+      //       m(".modal-body", "Pippo")
+      //     ])
+      //   ])
+      // ])
     };
     this.buttonItems = [
       {
         "icon": "fa-eye",
         "title": "Mostra dettagli",
-        "link": "/users/" + userItem.model.id,
+        "link": "/users/" + user.id,
         "btnClass": "btn-info"
       },
       {
         "icon": "fa-pencil",
         "title": "Modifica",
-        "link": "/users/" + userItem.model.id + "/edit",
+        "link": "/users/" + user.id + "/edit",
         "btnClass": "btn-info"
       },
       {
@@ -36,13 +42,13 @@ var userItem = {
       }
     ];
   },
-  view: function(ctrl){
-    return m('.wrapper .padding-10 .items-list__row', [
+  view: function(ctrl, user){
+    return m('.wrapper .padding-10 .items-list__row', { id: user.id },  [
       m(".items-list__info", [
-        m("span", { class: "column" }, "Ilaria Di Rosa"),
-        m("span", { class: "column" }, "iladiro"),
-        m("span", { class: "column" }, "angels88"),
-        m("span", { class: "column" }, "dirosa.ilaria@gmail.com")
+        m("span", { class: "column" }, user.first_name),
+        m("span", { class: "column" }, user.username),
+        m("span", { class: "column" }, user.password),
+        m("span", { class: "column" }, user.email)
       ]),
       m(userActions, { buttons: ctrl.buttonItems } )
     ])
