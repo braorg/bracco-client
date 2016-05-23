@@ -13,9 +13,9 @@ var textField = {
   view: function(ctrl, attrs) {
     return m(".form-group", [
             m("input", $.extend(attrs, {
-              onkeyup: m.withAttr("value", ctrl.checkLength),
+              // onkeyup: m.withAttr("value", ctrl.checkLength),
               class: 'form-control',
-              style: ctrl.valid()
+              // style: ctrl.valid()
             }))
           ]);
   }

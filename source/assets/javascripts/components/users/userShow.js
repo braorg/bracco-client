@@ -80,7 +80,7 @@ userShow = (function() {
       var ctrl = this;
       ctrl.users = m.request({
         method: "GET",
-        url: "http://localhost:4000/api/users/2",
+        url: "http://localhost:4000/api" + m.route(),
         unwrapSuccess: function(response) {
           return response.data;
         },
