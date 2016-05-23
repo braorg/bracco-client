@@ -21,47 +21,47 @@ userShow = (function() {
     }
   ];
 
-  var breadcrumbSlugTranslations = {
-    "users": {
-      text: "Utenti",
-      link: "/users",
-      active: false
-    },
-    "2": {
-      text: "Nome",
-      link: "#",
-      active: true
-    }
-  };
-
-  var breadcrumbItems = function() {
-    var url = m.route();
-    var slugs = url.split("/");
-    return slugs.filter(function(slug) {
-      return slug != ""
-    }).map(function(slug){
-      return breadcrumbSlugTranslations[slug]
-    });
-  };
-
-  var breadcrumbBar = function() {
-    return [
-      m('ol', { class: 'breadcrumb' },
-        breadcrumb(breadcrumbItems())
-      )
-    ];
-  };
+  // var breadcrumbSlugTranslations = {
+  //   "users": {
+  //     text: "Utenti",
+  //     link: "/users",
+  //     active: false
+  //   },
+  //   "2": {
+  //     text: "Nome",
+  //     link: "#",
+  //     active: true
+  //   }
+  // };
+  //
+  // var breadcrumbItems = function() {
+  //   var url = m.route();
+  //   var slugs = url.split("/");
+  //   return slugs.filter(function(slug) {
+  //     return slug != ""
+  //   }).map(function(slug){
+  //     return breadcrumbSlugTranslations[slug]
+  //   });
+  // };
+  //
+  // var breadcrumbBar = function() {
+  //   return [
+  //     m('ol', { class: 'breadcrumb' },
+  //       breadcrumb(breadcrumbItems())
+  //     )
+  //   ];
+  // };
 
   var content = function(ctrl) {
     return [
       m(".col-xs-12 .col-sm-7 .col-md-4 .center-block", [
-        m(".wrapper .padding-30", { id: ctrl.users().id }, [
-          m("p", { class: "no-margin-top decorator" }, ctrl.users().first_name + " " + ctrl.users().last_name),
-          m("p", { class: "no-margin-top decorator" }, ctrl.users().username),
-          m("p", { class: "no-margin-top decorator" }, ctrl.users().email),
+        m(".wrapper .padding-30", { id: ctrl.user().id }, [
+          m("p", { class: "no-margin-top decorator" }, ctrl.user().first_name + " " + ctrl.user().last_name),
+          m("p", { class: "no-margin-top decorator" }, ctrl.user().username),
+          m("p", { class: "no-margin-top decorator" }, ctrl.user().email),
           // m("p", { class: "no-margin-top decorator", "data-type": "password" }, ctrl.hiddenPsw()),
           // m("p", { class: "no-margin decorator" }, ctrl.user.profile_id),
-          m("img", { src: ctrl.users().avatar_url, class: "img-responsive decorator" })
+          m("img", { src: ctrl.user().avatar_url, class: "img-responsive decorator" })
         ])
       ])
 		];
@@ -78,9 +78,9 @@ userShow = (function() {
   return {
     controller: function(){
       var ctrl = this;
-      ctrl.users = m.request({
+      ctrl.user = m.request({
         method: "GET",
-        url: "http://localhost:4000/api" + m.route(),
+        url: "http://localhost:4000/api/users/" + m.route.param("userId"),
         unwrapSuccess: function(response) {
           return response.data;
         },
