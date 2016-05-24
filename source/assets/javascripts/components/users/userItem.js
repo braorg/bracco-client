@@ -4,6 +4,9 @@ var userItem = {
     this.archive = function() {
       alert("Archive");
     };
+    this.restores = function() {
+      alert("Ripristina");
+    };
     this.delete = function() {
       alert("Delete");
       // return m(".modal fade", { tabindex: "-1", role: "dialog",
@@ -41,6 +44,26 @@ var userItem = {
         "btnClass": "btn-danger"
       }
     ];
+    this.buttonArchivedItems = [
+      {
+        "icon": "fa-eye",
+        "title": "Mostra dettagli",
+        "link": "/users/" + user.id,
+        "btnClass": "btn-info"
+      },
+      {
+        "icon": "fa-reply",
+        "title": "Ripristina",
+        "action": this.restores,
+        "btnClass": "btn-warning"
+      },
+      {
+        "icon": "fa-trash-o",
+        "title": "Elimina",
+        "action": this.delete,
+        "btnClass": "btn-danger"
+      }
+    ];
   },
   view: function(ctrl, user){
     return m('.wrapper .padding-10 .items-list__row', { id: user.id },  [
@@ -50,7 +73,7 @@ var userItem = {
         m("span", { class: "column" }, user.password),
         m("span", { class: "column" }, user.email)
       ]),
-      m(userActions, { buttons: ctrl.buttonItems } )
+      m(userActions, { buttons: user.archived ? ctrl.buttonItems : ctrl.buttonArchivedItems } )
     ])
   }
 }

@@ -58,7 +58,6 @@ userShow = (function() {
           m("p", { class: "no-margin-top decorator" }, ctrl.user().first_name + " " + ctrl.user().last_name),
           m("p", { class: "no-margin-top decorator" }, ctrl.user().username),
           m("p", { class: "no-margin-top decorator" }, ctrl.user().email),
-          // m("p", { class: "no-margin-top decorator", "data-type": "password" }, ctrl.hiddenPsw()),
           // m("p", { class: "no-margin decorator" }, ctrl.user.profile_id),
           m("img", { src: ctrl.user().avatar_url, class: "img-responsive decorator" })
         ])

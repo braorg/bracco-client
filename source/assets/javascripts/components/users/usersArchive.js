@@ -39,7 +39,9 @@ usersArchive = (function() {
     return slugs.filter(function(slug) {
       return slug != ""
     }).map(function(slug){
-      return breadcrumbSlugTranslations[slug]
+      if(slug != NaN){
+        return breadcrumbSlugTranslations[slug]
+      }
     });
   };
 
@@ -51,12 +53,14 @@ usersArchive = (function() {
     ];
   };
 
-  var content = function() {
+  var content = function(ctrl) {
     return [
       m(toolBar),
-      m(".items-list", [
-        m(userItem)
-      ])
+      m(".items-list",
+        ctrl.users().map(function(user) {
+          return m(userItem, user);
+        })
+      )
 		];
   };
 
@@ -71,6 +75,16 @@ usersArchive = (function() {
   return {
     controller: function(){
       var ctrl = this;
+      ctrl.users = m.request({
+        method: "GET",
+        url: "http://localhost:4000/api/users?archived=true",
+        unwrapSuccess: function(response) {
+          return response.data;
+        },
+        unwrapError: function(response) {
+          return response.error;
+        }
+      });
     },
     view: mixinLayout(layout2, topNav, sidebarNav, breadcrumbBar, content)
   };
