@@ -15,7 +15,7 @@
         padding-left: 10px;
       }
       &.active{
-        a{
+        a, span{
           @include font-style(12px, #21abc7);
         }
       }

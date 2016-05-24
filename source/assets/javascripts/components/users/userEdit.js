@@ -1,11 +1,11 @@
 userEdit = (function() {
   var sideBarItems = [
-    {
-      "icon": "fa-user",
-      "link": "/users",
-      "title": "Mostra tutti gli utenti",
-      "active": true
-    },
+    // {
+    //   "icon": "fa-user",
+    //   "link": "/users",
+    //   "title": "Mostra tutti gli utenti",
+    //   "active": true
+    // },
     {
       "icon": "fa-users",
       "link": "/users",
@@ -26,41 +26,40 @@ userEdit = (function() {
     }
   ];
 
-  // var breadcrumbSlugTranslations = {
-  //   "users": {
-  //     text: "Utenti",
-  //     link: "/users",
-  //     active: false
-  //   },
-  //   "2": {
-  //     text: "2",
-  //     link: "/users",
-  //     active: false
-  //   },
-  //   "edit": {
-  //     text: "Modifica Utente",
-  //     link: "/users/new",
-  //     active: true
-  //   }
-  // };
-  //
-  // var breadcrumbItems = function() {
-  //   var url = m.route();
-  //   var slugs = url.split("/");
-  //   return slugs.filter(function(slug) {
-  //     return slug != ""
-  //   }).map(function(slug){
-  //     return breadcrumbSlugTranslations[slug]
-  //   });
-  // };
-  //
-  // var breadcrumbBar = function() {
-  //   return [
-  //     m('ol', { class: 'breadcrumb' },
-  //       breadcrumb(breadcrumbItems())
-  //     )
-  //   ];
-  // };
+  var breadcrumbSlugTranslations = {
+    "users": {
+      text: "Utenti",
+      link: "/users",
+      active: false
+    },
+    "edit": {
+      text: "Modifica Utente",
+      link: "/users/new",
+      active: true
+    }
+  };
+
+  var breadcrumbItems = function() {
+    var url = m.route();
+    var slugs = url.split("/");
+    return slugs.filter(function(slug) {
+      return slug != ""
+    }).map(function(slug){
+      return breadcrumbSlugTranslations[slug];
+    }).filter(function(slug) {
+      if(slug != undefined) {
+        return slug;
+      };
+    });
+  };
+
+  var breadcrumbBar = function() {
+    return [
+      m('ol', { class: 'breadcrumb' },
+        breadcrumb(breadcrumbItems())
+      )
+    ];
+  };
 
   var content = function(ctrl) {
     return [

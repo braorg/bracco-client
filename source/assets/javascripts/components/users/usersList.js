@@ -34,7 +34,9 @@ usersList = (function() {
     return slugs.filter(function(slug) {
       return slug != ""
     }).map(function(slug){
-      return breadcrumbSlugTranslations[slug]
+      if(slug != NaN){
+        return breadcrumbSlugTranslations[slug]
+      }
     });
   };
 

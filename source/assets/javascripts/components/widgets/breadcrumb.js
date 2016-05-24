@@ -6,9 +6,15 @@ var breadcrumb = function(items) {
       ], "Home")
     ]),
     items.map(function(item) {
-      return m("li", { class: (item.active ? "active" : "") }, [
-        m("a", { href: item.link, config: m.route }, item.text )
-      ])
+      if( item.active == true ){
+        return m("li", { class: (item.active ? "active" : "") }, [
+          m("span", { "data-href": item.link }, item.text )
+        ])
+      } else {
+        return m("li", { class: (item.active ? "active" : "") }, [
+          m("a", { href: item.link, config: m.route }, item.text )
+        ])
+      }
     })
   ]
 }
