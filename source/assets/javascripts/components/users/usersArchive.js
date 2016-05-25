@@ -36,9 +36,7 @@ usersArchive = (function() {
   var breadcrumbItems = function() {
     var url = m.route();
     var slugs = url.split("/");
-    return slugs.filter(function(slug) {
-      return slug != ""
-    }).map(function(slug){
+    return slugs.map(function(slug){
       return breadcrumbSlugTranslations[slug];
     }).filter(function(slug) {
       if(slug != undefined) {

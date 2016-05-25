@@ -81,10 +81,9 @@ var userItem = {
         m("span", { class: "column" }, user.first_name),
         m("span", { class: "column" }, user.last_name),
         m("span", { class: "column" }, user.username),
-        m("span", { class: "column" }, user.email),
-        m("span", { class: "column" }, user.archived)
+        m("span", { class: "column" }, user.email)
       ]),
-      m(userActions, { buttons: ((user.archived == "false") ? ctrl.buttonItems : ctrl.buttonArchivedItems) } )
+      m(userActions, { buttons: (user.archived ? ctrl.buttonArchivedItems : ctrl.buttonItems) } )
     ])
   }
 }

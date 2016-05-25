@@ -42,9 +42,7 @@ userEdit = (function() {
   var breadcrumbItems = function() {
     var url = m.route();
     var slugs = url.split("/");
-    return slugs.filter(function(slug) {
-      return slug != ""
-    }).map(function(slug){
+    return slugs.map(function(slug){
       return breadcrumbSlugTranslations[slug];
     }).filter(function(slug) {
       if(slug != undefined) {
@@ -70,12 +68,9 @@ userEdit = (function() {
             m.component(textField, { type: 'text', placeholder: 'Cognome', value: ctrl.user().last_name, id: 'surname' }),
             m.component(textField, { type: 'email', placeholder: 'Username', value: ctrl.user().username, id: 'username' }),
             m.component(textField, { type: 'email', placeholder: 'Email', value: ctrl.user().email, id: 'email' }),
-            // m.component(textField, { type: 'password', placeholder: 'Password', id: 'password' }),
-            // m.component(textField, { type: 'password', placeholder: 'Confirm Password', id: 'confirm-password' }),
-            // m("select", { class: 'form-control'}, [
-            //   m("option", "Amministratore"),
-            //   m("option", "Dipendete")
-            // ]),
+            m.component(textField, { type: 'password', placeholder: 'Password', id: 'password' }),
+            m.component(textField, { type: 'password', placeholder: 'Conferma Password', id: 'confirm_password' }),
+            m("select", { class: 'form-control'}, ctrl.selected()),
             m("button[type=submit]", {
               class: 'btn btn-success btn-lg'
             }, "Modifica Utente" )
@@ -106,6 +101,19 @@ userEdit = (function() {
           return response.error;
         }
       });
+      ctrl.selected = function() {
+        if(ctrl.user().profile_id == "1"){
+          return [
+            m("option", { value: "1", selected: true }, "Amministratore"),
+            m("option", { value: "2" }, "Utente semplice")
+          ]
+        } else {
+          return [
+            m("option", { value: "1" }, "Amministratore"),
+            m("option", { value: "2", selected: true }, "Utente semplice")
+          ]
+        }
+      };
     },
     view: mixinLayout(layout2, topNav, sidebarNav, breadcrumbBar, content)
   };

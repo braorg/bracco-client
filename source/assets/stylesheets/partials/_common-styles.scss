@@ -187,6 +187,7 @@ textarea::-webkit-input-placeholder {
   @extend .form-control;
   @include border(1px, #e6e6e6);
   height: auto;
+  min-height: 40px;
   @include box-shadow(none);
   padding: 10px 12px;
 }
