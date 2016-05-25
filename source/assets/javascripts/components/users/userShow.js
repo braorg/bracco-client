@@ -1,32 +1,32 @@
-UserPage.show = (function() {
+userShow = (function() {
 
-  var breadcrumbSlugTranslations = {
-    "users": {
-      text: "Utenti",
-      link: "/users",
-      active: false
-    }
-  };
-
-  var breadcrumbItems = function() {
-    var url = m.route();
-    var slugs = url.split("/");
-    return slugs.map(function(slug){
-      return breadcrumbSlugTranslations[slug];
-    }).filter(function(slug) {
-      if(slug != undefined) {
-        return slug;
-      };
-    });
-  };
-
-  var breadcrumbBar = function() {
-    return [
-      m('ol', { class: 'breadcrumb' },
-        breadcrumb(breadcrumbItems())
-      )
-    ];
-  };
+  // var breadcrumbSlugTranslations = {
+  //   "users": {
+  //     text: "Utenti",
+  //     link: "/users",
+  //     active: false
+  //   }
+  // };
+  //
+  // var breadcrumbItems = function() {
+  //   var url = m.route();
+  //   var slugs = url.split("/");
+  //   return slugs.map(function(slug){
+  //     return breadcrumbSlugTranslations[slug];
+  //   }).filter(function(slug) {
+  //     if(slug != undefined) {
+  //       return slug;
+  //     };
+  //   });
+  // };
+  //
+  // var breadcrumbBar = function() {
+  //   return [
+  //     m('ol', { class: 'breadcrumb' },
+  //       breadcrumb(breadcrumbItems())
+  //     )
+  //   ];
+  // };
 
   var tinyButtons = function(user) {
     return [

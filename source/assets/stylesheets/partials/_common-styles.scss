@@ -166,9 +166,6 @@ textarea::-webkit-input-placeholder {
     @include respond-to(min-width, 769px) {
       float: right;
     }
-    @include respond-to(max-width, 768px) {
-      margin-top: 10px;
-    }
     .btn-checkbox{
       @include size(36px, 35px);
       @include border(1px, #e6e6e6);

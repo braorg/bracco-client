@@ -9,7 +9,7 @@ m.route(document.getElementById('app'), "/", {
   "/users": usersList,
   "/users/new": userForm,
   "/users/archive": usersArchive,
-  "/users/:userId": UserPage.show,
+  "/users/:userId": userShow,
   "/users/:userId/edit": userEdit,
 
   // Notes routing

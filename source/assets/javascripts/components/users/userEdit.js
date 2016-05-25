@@ -1,37 +1,54 @@
 userEdit = (function() {
 
-  var breadcrumbSlugTranslations = {
-    "users": {
-      text: "Utenti",
-      link: "/users",
-      active: false
-    },
-    "edit": {
-      text: "Modifica Utente",
-      link: "/users/new",
-      active: true
-    }
-  };
+  // var breadcrumbSlugTranslations = {
+  //   "users": {
+  //     text: "Utenti",
+  //     link: "/users",
+  //     active: false
+  //   },
+  //   "edit": {
+  //     text: "Modifica Utente",
+  //     link: "/users/new",
+  //     active: true
+  //   }
+  // };
+  //
+  // var breadcrumbItems = function() {
+  //   var url = m.route();
+  //   var slugs = url.split("/");
+  //   return slugs.map(function(slug){
+  //     return breadcrumbSlugTranslations[slug];
+  //   }).filter(function(slug) {
+  //     if(slug != undefined) {
+  //       return slug;
+  //     };
+  //   });
+  // };
+  //
+  // var breadcrumbBar = function() {
+  //   return [
+  //     m('ol', { class: 'breadcrumb' },
+  //       breadcrumb(breadcrumbItems())
+  //     )
+  //   ];
+  // };
 
-  var breadcrumbItems = function() {
-    var url = m.route();
-    var slugs = url.split("/");
-    return slugs.map(function(slug){
-      return breadcrumbSlugTranslations[slug];
-    }).filter(function(slug) {
-      if(slug != undefined) {
-        return slug;
-      };
-    });
-  };
-
-  var breadcrumbBar = function() {
+  var tinyButtons = function(user) {
     return [
-      m('ol', { class: 'breadcrumb' },
-        breadcrumb(breadcrumbItems())
-      )
+      {
+        "icon": "fa-archive",
+        "title": "Archivia",
+        // "action": this.archive,
+        "btnClass": "btn-warning"
+      },
+      {
+        "icon": "fa-trash-o",
+        "title": "Elimina",
+        // "action": this.delete,
+        "btnClass": "btn-danger"
+      }
     ];
-  };
+  }
 
   var content = function(ctrl) {
     return [
@@ -50,7 +67,8 @@ userEdit = (function() {
             }, "Modifica Utente" )
           ])
         ])
-      ])
+      ]),
+      m.component(tinyNav, { buttons: tinyButtons(ctrl.user()) })
 		];
   };
 
