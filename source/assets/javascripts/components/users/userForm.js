@@ -39,7 +39,11 @@ userForm = (function() {
     return slugs.filter(function(slug) {
       return slug != ""
     }).map(function(slug){
-      return breadcrumbSlugTranslations[slug]
+      return breadcrumbSlugTranslations[slug];
+    }).filter(function(slug) {
+      if(slug != undefined) {
+        return slug;
+      };
     });
   };
 

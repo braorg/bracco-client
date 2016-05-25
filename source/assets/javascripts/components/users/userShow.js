@@ -59,7 +59,7 @@ userShow = (function() {
           m("p", { class: "no-margin-top decorator" }, ctrl.user().username),
           m("p", { class: "no-margin-top decorator" }, ctrl.user().email),
           // m("p", { class: "no-margin decorator" }, ctrl.user.profile_id),
-          m("img", { src: ctrl.user().avatar_url, class: "img-responsive decorator" })
+          m("img", { src: Bracco.baseUrl + ctrl.user().avatar_url, class: "img-responsive decorator" })
         ])
       ])
 		];
@@ -78,7 +78,7 @@ userShow = (function() {
       var ctrl = this;
       ctrl.user = m.request({
         method: "GET",
-        url: "http://localhost:4000/api/users/" + m.route.param("userId"),
+        url: Bracco.baseUrl + "api/users/" + m.route.param("userId"),
         unwrapSuccess: function(response) {
           return response.data;
         },

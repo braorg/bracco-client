@@ -8,7 +8,7 @@ var userItem = {
       alert("Ripristina");
     };
     this.delete = function() {
-      alert("Delete");
+      // alert("Delete");
       // return m(".modal fade", { tabindex: "-1", role: "dialog",
       // "aria-labelledby": "myModalLabel", id: "myModal" }, [
       //   m(".modal-dialog", [
@@ -17,6 +17,16 @@ var userItem = {
       //     ])
       //   ])
       // ])
+      m.request({
+        method: "DELETE",
+        url: Bracco.baseUrl + "api/users/" + m.route.param("userId"),
+        unwrapSuccess: function(response) {
+          return response.data;
+        },
+        unwrapError: function(response) {
+          return response.error;
+        }
+      });
     };
     this.buttonItems = [
       {
@@ -69,11 +79,12 @@ var userItem = {
     return m('.wrapper .padding-10 .items-list__row', { id: user.id },  [
       m(".items-list__info", [
         m("span", { class: "column" }, user.first_name),
+        m("span", { class: "column" }, user.last_name),
         m("span", { class: "column" }, user.username),
-        m("span", { class: "column" }, user.password),
-        m("span", { class: "column" }, user.email)
+        m("span", { class: "column" }, user.email),
+        m("span", { class: "column" }, user.archived)
       ]),
-      m(userActions, { buttons: user.archived ? ctrl.buttonItems : ctrl.buttonArchivedItems } )
+      m(userActions, { buttons: ((user.archived == "false") ? ctrl.buttonItems : ctrl.buttonArchivedItems) } )
     ])
   }
 }

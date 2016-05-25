@@ -1,3 +1,4 @@
+//= require app
 //= require_tree ./components/layout
 //= require_tree ./components/widgets
 //= require_tree ./components/notes

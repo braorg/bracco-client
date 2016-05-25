@@ -98,7 +98,7 @@ userEdit = (function() {
       var ctrl = this;
       ctrl.user = m.request({
         method: "GET",
-        url: "http://localhost:4000/api/users/" + m.route.param("userId"),
+        url: Bracco.baseUrl + "api/users/" + m.route.param("userId"),
         unwrapSuccess: function(response) {
           return response.data;
         },

@@ -34,9 +34,11 @@ usersList = (function() {
     return slugs.filter(function(slug) {
       return slug != ""
     }).map(function(slug){
-      if(slug != NaN){
-        return breadcrumbSlugTranslations[slug]
-      }
+      return breadcrumbSlugTranslations[slug];
+    }).filter(function(slug) {
+      if(slug != undefined) {
+        return slug;
+      };
     });
   };
 
@@ -72,7 +74,7 @@ usersList = (function() {
       var ctrl = this;
       ctrl.users = m.request({
         method: "GET",
-        url: "http://localhost:4000/api/users",
+        url: Bracco.baseUrl + "api/users?archived=false",
         unwrapSuccess: function(response) {
           return response.data;
         },
