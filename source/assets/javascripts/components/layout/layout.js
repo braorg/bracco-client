@@ -55,7 +55,7 @@ var layout2 = function(topNav, sidebarNav, breadcrumbBar, content) {
     ]),
     m('main', { class: 'main-container centered'}, [
       m("section", { class: "breadcrumb-bar" }, [
-        m(".container", breadcrumbBar)
+        m(".container-fluid", breadcrumbBar)
       ]),
       m("section", [
         m('.container', content)

@@ -1,6 +1,9 @@
 var userItem = {
   controller: function(user){
     this.user = user;
+    // this.selected = function() {
+    //
+    // };
     this.archive = function() {
       alert("Archive");
     };
@@ -83,7 +86,7 @@ var userItem = {
         m("span", { class: "column" }, user.username),
         m("span", { class: "column" }, user.email)
       ]),
-      m(userActions, { buttons: (user.archived ? ctrl.buttonArchivedItems : ctrl.buttonItems) } )
+      m(userActions, { list_type: "list-inline", buttons: (user.archived ? ctrl.buttonArchivedItems : ctrl.buttonItems) } )
     ])
   }
 }

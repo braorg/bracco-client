@@ -169,10 +169,22 @@ textarea::-webkit-input-placeholder {
     @include respond-to(max-width, 768px) {
       margin-top: 10px;
     }
-    .btn-check{
+    .btn-checkbox{
       @include size(36px, 35px);
       @include border(1px, #e6e6e6);
       border-radius: 4px;
+      margin-right: 5px;
+      &:hover{
+        @include border(1px, #21abc7);
+      }
+      &__flag{
+        @include size(100%, 100%);
+        margin: 0;
+        &::before{
+          content: "\f00c";
+          font: normal normal normal 14px/1 FontAwesome;
+        }
+      }
     }
     & > a{
       margin-right: 5px;

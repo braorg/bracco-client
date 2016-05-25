@@ -1,24 +1,4 @@
 userForm = (function() {
-  var sideBarItems = [
-    {
-      "icon": "fa-users",
-      "link": "/users",
-      "title": "Mostra tutti gli utenti",
-      "active": false
-    },
-    {
-      "icon": "fa-user-plus",
-      "link": "/users/new",
-      "title": "Aggiungi utente",
-      "active": true
-    },
-    {
-      "icon": "fa-archive",
-      "link": "/users/archive",
-      "title": "Mostra utenti in archivio",
-      "active": false
-    }
-  ];
 
   var breadcrumbSlugTranslations = {
     "users": {
@@ -75,14 +55,6 @@ userForm = (function() {
         ])
       ])
 		];
-  };
-
-  var sidebarNav = function() {
-    return [
-      m('ul', { class: 'nav nav-pills nav-stacked sidebar-nav' },
-        sideBarItems.map(sideBarItem)
-      )
-    ];
   };
 
   return {

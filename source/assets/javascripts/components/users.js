@@ -1,0 +1,9 @@
+//= require ./users/userPage
+//= require ./users/config
+//= require ./users/userActions
+//= require ./users/userItem
+//= require ./users/userShow
+//= require ./users/userEdit
+//= require ./users/usersList
+//= require ./users/usersArchive
+//= require ./users/userForm

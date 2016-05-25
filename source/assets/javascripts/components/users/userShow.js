@@ -1,25 +1,4 @@
-userShow = (function() {
-
-  var sideBarItems = [
-    {
-      "icon": "fa-users",
-      "link": "/users",
-      "title": "Mostra tutti gli utenti",
-      "active": false
-    },
-    {
-      "icon": "fa-user-plus",
-      "link": "/users/new",
-      "title": "Aggiungi utente",
-      "active": false
-    },
-    {
-      "icon": "fa-archive",
-      "link": "/users/archive",
-      "title": "Mostra utenti in archivio",
-      "active": false
-    }
-  ];
+UserPage.show = (function() {
 
   var breadcrumbSlugTranslations = {
     "users": {
@@ -49,6 +28,29 @@ userShow = (function() {
     ];
   };
 
+  var tinyButtons = function(user) {
+    return [
+      {
+        "icon": "fa-pencil",
+        "title": "Modifica",
+        "link": "/users/" + user.id + "/edit",
+        "btnClass": "btn-info"
+      },
+      {
+        "icon": "fa-archive",
+        "title": "Archivia",
+        // "action": this.archive,
+        "btnClass": "btn-warning"
+      },
+      {
+        "icon": "fa-trash-o",
+        "title": "Elimina",
+        // "action": this.delete,
+        "btnClass": "btn-danger"
+      }
+    ];
+  }
+
   var content = function(ctrl) {
     return [
       m(".col-xs-12 .col-sm-7 .col-md-4 .center-block", [
@@ -59,16 +61,9 @@ userShow = (function() {
           m("p", { class: "no-margin-top decorator" }, ( (ctrl.user().profile_id == "1") ? "Amministratore" : "Utente semplice") ),
           m("img", { src: Bracco.baseUrl + ctrl.user().avatar_url, class: "img-responsive decorator" })
         ])
-      ])
+      ]),
+      m.component(tinyNav, { buttons: tinyButtons(ctrl.user()) })
 		];
-  };
-
-  var sidebarNav = function() {
-    return [
-      m('ul', { class: 'nav nav-pills nav-stacked sidebar-nav' },
-        sideBarItems.map(sideBarItem)
-      )
-    ];
   };
 
   return {
