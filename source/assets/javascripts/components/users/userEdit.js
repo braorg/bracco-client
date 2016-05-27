@@ -1,54 +1,6 @@
 userEdit = (function() {
 
-  // var breadcrumbSlugTranslations = {
-  //   "users": {
-  //     text: "Utenti",
-  //     link: "/users",
-  //     active: false
-  //   },
-  //   "edit": {
-  //     text: "Modifica Utente",
-  //     link: "/users/new",
-  //     active: true
-  //   }
-  // };
-  //
-  // var breadcrumbItems = function() {
-  //   var url = m.route();
-  //   var slugs = url.split("/");
-  //   return slugs.map(function(slug){
-  //     return breadcrumbSlugTranslations[slug];
-  //   }).filter(function(slug) {
-  //     if(slug != undefined) {
-  //       return slug;
-  //     };
-  //   });
-  // };
-  //
-  // var breadcrumbBar = function() {
-  //   return [
-  //     m('ol', { class: 'breadcrumb' },
-  //       breadcrumb(breadcrumbItems())
-  //     )
-  //   ];
-  // };
-
-  var tinyButtons = function(user) {
-    return [
-      {
-        "icon": "fa-archive",
-        "title": "Archivia",
-        // "action": this.archive,
-        "btnClass": "btn-warning"
-      },
-      {
-        "icon": "fa-trash-o",
-        "title": "Elimina",
-        // "action": this.delete,
-        "btnClass": "btn-danger"
-      }
-    ];
-  }
+  var tinyButtonKeys = ["archive", "delete"];
 
   var content = function(ctrl) {
     return [
@@ -62,13 +14,11 @@ userEdit = (function() {
             m.component(textField, { type: 'password', placeholder: 'Password', id: 'password' }),
             m.component(textField, { type: 'password', placeholder: 'Conferma Password', id: 'confirm_password' }),
             m("select", { class: 'form-control'}, ctrl.selected()),
-            m("button[type=submit]", {
-              class: 'btn btn-success btn-lg'
-            }, "Modifica Utente" )
+            m("button[type=submit]", { class: 'btn btn-success btn-lg' }, "Modifica Utente" )
           ])
         ])
       ]),
-      m.component(tinyNav, { buttons: tinyButtons(ctrl.user()) })
+      m.component(tinyNav, { buttons: getTinies(ctrl.user(), tinyButtonKeys) })
 		];
   };
 

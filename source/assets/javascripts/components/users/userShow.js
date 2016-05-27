@@ -1,55 +1,6 @@
 userShow = (function() {
 
-  // var breadcrumbSlugTranslations = {
-  //   "users": {
-  //     text: "Utenti",
-  //     link: "/users",
-  //     active: false
-  //   }
-  // };
-  //
-  // var breadcrumbItems = function() {
-  //   var url = m.route();
-  //   var slugs = url.split("/");
-  //   return slugs.map(function(slug){
-  //     return breadcrumbSlugTranslations[slug];
-  //   }).filter(function(slug) {
-  //     if(slug != undefined) {
-  //       return slug;
-  //     };
-  //   });
-  // };
-  //
-  // var breadcrumbBar = function() {
-  //   return [
-  //     m('ol', { class: 'breadcrumb' },
-  //       breadcrumb(breadcrumbItems())
-  //     )
-  //   ];
-  // };
-
-  var tinyButtons = function(user) {
-    return [
-      {
-        "icon": "fa-pencil",
-        "title": "Modifica",
-        "link": "/users/" + user.id + "/edit",
-        "btnClass": "btn-info"
-      },
-      {
-        "icon": "fa-archive",
-        "title": "Archivia",
-        // "action": this.archive,
-        "btnClass": "btn-warning"
-      },
-      {
-        "icon": "fa-trash-o",
-        "title": "Elimina",
-        // "action": this.delete,
-        "btnClass": "btn-danger"
-      }
-    ];
-  }
+  var tinyButtonKeys = ["edit", "archive", "delete"];
 
   var content = function(ctrl) {
     return [
@@ -62,7 +13,7 @@ userShow = (function() {
           m("img", { src: Bracco.baseUrl + ctrl.user().avatar_url, class: "img-responsive decorator" })
         ])
       ]),
-      m.component(tinyNav, { buttons: tinyButtons(ctrl.user()) })
+      m.component(tinyNav, { buttons: getTinies(ctrl.user(), tinyButtonKeys) })
 		];
   };
 

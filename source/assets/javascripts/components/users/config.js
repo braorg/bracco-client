@@ -22,25 +22,83 @@ UserPage.config = {
     "users": {
       text: "Utenti",
       link: "/users"
-      // active: false
     },
     // "edit": {
     //   text: "Modifica Utente",
     //   link: "/users/new"
-    //   // active: false
     // },
     "archive": {
       text: "Archivio",
       link: "/users/archive"
-      // active: false
     },
     "new": {
       text: "Aggiungi utente",
       link: "/users/new"
-      // active: false
     }
+  },
+  // tinyButtons: function(user) {
+  //   return {
+  //     "show": {
+  //       "icon": "fa-eye",
+  //       "title": "Mostra dettagli",
+  //       "link": "/users/" + user.id,
+  //       "btnClass": "btn-info"
+  //     },
+  //     "edit": {
+  //       "icon": "fa-pencil",
+  //       "title": "Modifica",
+  //       "link": "/users/" + user.id + "/edit",
+  //       "btnClass": "btn-info"
+  //     },
+  //     "archive": {
+  //       "icon": "fa-archive",
+  //       "title": "Archivia",
+  //       // "action": this.archive,
+  //       "btnClass": "btn-warning"
+  //     },
+  //     "delete": {
+  //       "icon": "fa-trash-o",
+  //       "title": "Elimina",
+  //       // "action": this.delete,
+  //       "btnClass": "btn-danger"
+  //     }
+  //   };
+  // }
+  tinyButtons: function(id) {
+    return {
+      show: {
+        icon: "fa-eye",
+        title: "Mostra dettagli",
+        link: "/users/" + id,
+        btnClass: "btn-info"
+      },
+      edit: {
+        icon: "fa-pencil",
+        title: "Modifica",
+        link: "/users/" + id + "/edit",
+        btnClass: "btn-info"
+      },
+      archive: {
+        icon: "fa-archive",
+        title: "Archivia",
+        // "action": this.archive,
+        btnClass: "btn-warning"
+      },
+      delete: {
+        icon: "fa-trash-o",
+        title: "Elimina",
+        // "action": this.delete,
+        btnClass: "btn-danger"
+      }
+    };
   }
-}
+};
+
+var getTinies = function(user, tinyButtonKeys) {
+  return tinyButtonKeys.map(function(btn) {
+    return UserPage.config.tinyButtons(user.id)[btn]
+  })
+};
 
 var breadcrumbItems = function() {
   var url = m.route();
