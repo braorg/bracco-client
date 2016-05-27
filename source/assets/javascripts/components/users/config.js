@@ -21,23 +21,23 @@ UserPage.config = {
   breadcrumbSlugTranslations: {
     "users": {
       text: "Utenti",
-      link: "/users",
-      active: false
+      link: "/users"
+      // active: false
     },
-    "edit": {
-      text: "Modifica Utente",
-      link: "/users/new",
-      active: false
-    },
+    // "edit": {
+    //   text: "Modifica Utente",
+    //   link: "/users/new"
+    //   // active: false
+    // },
     "archive": {
       text: "Archivio",
-      link: "/archive",
-      active: false
+      link: "/users/archive"
+      // active: false
     },
     "new": {
       text: "Aggiungi utente",
-      link: "/users/new",
-      active: false
+      link: "/users/new"
+      // active: false
     }
   }
 }
@@ -57,7 +57,7 @@ var breadcrumbItems = function() {
 var breadcrumbBar = function() {
   return [
     m('ol', { class: 'breadcrumb' },
-      breadcrumb(breadcrumbItems())
+      breadcrumb(breadcrumbItems(), m.route())
     )
   ];
 };
