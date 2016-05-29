@@ -21,10 +21,6 @@ userShow = (function() {
     controller: function(){
       var ctrl = this;
       ctrl.user = User.show(m.route.param("userId"));
-
-      ctrl.hiddenPsw = function(){
-        return ctrl.user.password.replace(/./g, "•");
-      }
     },
     view: mixinLayout(layout2, topNav, sidebarNav, breadcrumbBar, content)
   };

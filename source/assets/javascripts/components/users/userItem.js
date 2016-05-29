@@ -1,15 +1,15 @@
 var userItem = {
   controller: function(user){
     this.user = user;
-    this.archive = function() {
-      alert("Archive");
-    };
-    this.restores = function() {
-      alert("Ripristina");
-    };
-    this.delete = function() {
-      ctrl.user = User.show(m.route.param("userId"));
-    };
+    // this.archive = function() {
+    //   alert("Archive");
+    // };
+    // this.restores = function() {
+    //   alert("Ripristina");
+    // };
+    // this.delete = function() {
+    //   ctrl.user = User.show(m.route.param("userId"));
+    // };
     this.tinyButtonKeys = ["show", "edit", "archive", "delete"];
   },
   view: function(ctrl, user){

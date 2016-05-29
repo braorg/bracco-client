@@ -14,16 +14,7 @@ usersArchive = (function() {
   return {
     controller: function(){
       var ctrl = this;
-      ctrl.users = m.request({
-        method: "GET",
-        url: Bracco.baseUrl + "api/users?archived=true",
-        unwrapSuccess: function(response) {
-          return response.data;
-        },
-        unwrapError: function(response) {
-          return response.error;
-        }
-      });
+      ctrl.users = User.all("archived=true");
     },
     view: mixinLayout(layout2, topNav, sidebarNav, breadcrumbBar, content)
   };
