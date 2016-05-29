@@ -18,7 +18,7 @@ userEdit = (function() {
           ])
         ])
       ]),
-      m.component(tinyNav, { buttons: getTinies(ctrl.user(), tinyButtonKeys) })
+      m.component(tinyNav, { buttons: getTinies(ctrl.user(), tinyButtonKeys), style: "verticalStyle" })
 		];
   };
 
@@ -26,7 +26,7 @@ userEdit = (function() {
     controller: function(){
       var ctrl = this;
       ctrl.user = User.show(m.route.param("userId"));
-      
+
       ctrl.selected = function() {
         if(ctrl.user().profile_id == "1"){
           return [

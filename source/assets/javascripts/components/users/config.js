@@ -36,7 +36,7 @@ UserPage.config = {
       link: "/users/new"
     }
   },
-  tinyButtons: function(id) {
+  buttons: function(id) {
     return {
       show: {
         icon: "fa-eye",
@@ -68,7 +68,7 @@ UserPage.config = {
 
 var getTinies = function(user, tinyButtonKeys) {
   return tinyButtonKeys.map(function(btn) {
-    return UserPage.config.tinyButtons(user.id)[btn]
+    return UserPage.config.buttons(user.id)[btn]
   })
 };
 
