@@ -53,13 +53,13 @@ UserPage.config = {
       archive: {
         icon: "fa-archive",
         title: "Archivia",
-        // "action": this.archive,
+        action: "archive",
         btnClass: "btn-warning"
       },
       delete: {
         icon: "fa-trash-o",
         title: "Elimina",
-        // "action": this.delete,
+        action: "delete",
         btnClass: "btn-danger"
       }
     };
