@@ -20,16 +20,7 @@ userShow = (function() {
   return {
     controller: function(){
       var ctrl = this;
-      ctrl.user = m.request({
-        method: "GET",
-        url: Bracco.baseUrl + "api/users/" + m.route.param("userId"),
-        unwrapSuccess: function(response) {
-          return response.data;
-        },
-        unwrapError: function(response) {
-          return response.error;
-        }
-      });
+      ctrl.user = User.show(m.route.param("userId"));
 
       ctrl.hiddenPsw = function(){
         return ctrl.user.password.replace(/./g, "•");

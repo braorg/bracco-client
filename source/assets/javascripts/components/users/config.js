@@ -36,34 +36,6 @@ UserPage.config = {
       link: "/users/new"
     }
   },
-  // tinyButtons: function(user) {
-  //   return {
-  //     "show": {
-  //       "icon": "fa-eye",
-  //       "title": "Mostra dettagli",
-  //       "link": "/users/" + user.id,
-  //       "btnClass": "btn-info"
-  //     },
-  //     "edit": {
-  //       "icon": "fa-pencil",
-  //       "title": "Modifica",
-  //       "link": "/users/" + user.id + "/edit",
-  //       "btnClass": "btn-info"
-  //     },
-  //     "archive": {
-  //       "icon": "fa-archive",
-  //       "title": "Archivia",
-  //       // "action": this.archive,
-  //       "btnClass": "btn-warning"
-  //     },
-  //     "delete": {
-  //       "icon": "fa-trash-o",
-  //       "title": "Elimina",
-  //       // "action": this.delete,
-  //       "btnClass": "btn-danger"
-  //     }
-  //   };
-  // }
   tinyButtons: function(id) {
     return {
       show: {

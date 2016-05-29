@@ -1,3 +1,4 @@
+//= require ./users/user
 //= require ./users/userPage
 //= require ./users/config
 //= require ./users/userActions
