@@ -56,6 +56,12 @@ UserPage.config = {
         action: "archive",
         btnClass: "btn-warning"
       },
+      restores: {
+        icon: "fa-reply",
+        title: "Ripristina",
+        action: "restores",
+        btnClass: "btn-warning"
+      },
       delete: {
         icon: "fa-trash-o",
         title: "Elimina",

@@ -5,7 +5,7 @@ usersArchive = (function() {
       m(toolBar),
       m(".items-list",
         ctrl.users().map(function(user) {
-          return m(userItem, user);
+          return m(userItem, user, ctrl.tinyButtonKeys);
         })
       )
 		];
@@ -15,6 +15,7 @@ usersArchive = (function() {
     controller: function(){
       var ctrl = this;
       ctrl.users = User.all("archived=true");
+      ctrl.tinyButtonKeys = ["show", "restores", "delete"];
     },
     view: mixinLayout(layout2, topNav, sidebarNav, breadcrumbBar, content)
   };

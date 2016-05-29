@@ -25,6 +25,22 @@ var User = (function() {
           url: Bracco.baseUrl + url + id,
         }, defaultOptions)
       );
+    },
+    archive: function(id) {
+      return m.request(
+        $.extend({
+          method: "PUT",
+          url: Bracco.baseUrl + url + id,
+        }, defaultOptions)
+      );
+    },
+    delete: function(id) {
+      return m.request(
+        $.extend({
+          method: "DELETE",
+          url: Bracco.baseUrl + url + id,
+        }, defaultOptions)
+      );
     }
   }
 })();
