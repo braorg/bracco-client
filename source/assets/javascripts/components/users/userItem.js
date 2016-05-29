@@ -1,9 +1,6 @@
 var userItem = {
   controller: function(user){
     this.user = user;
-    // this.selected = function() {
-    //
-    // };
     this.archive = function() {
       alert("Archive");
     };
@@ -11,26 +8,9 @@ var userItem = {
       alert("Ripristina");
     };
     this.delete = function() {
-      // alert("Delete");
-      // return m(".modal fade", { tabindex: "-1", role: "dialog",
-      // "aria-labelledby": "myModalLabel", id: "myModal" }, [
-      //   m(".modal-dialog", [
-      //     m(".modal-content", [
-      //       m(".modal-body", "Pippo")
-      //     ])
-      //   ])
-      // ])
-      m.request({
-        method: "DELETE",
-        url: Bracco.baseUrl + "api/users/" + m.route.param("userId"),
-        unwrapSuccess: function(response) {
-          return response.data;
-        },
-        unwrapError: function(response) {
-          return response.error;
-        }
-      });
+      ctrl.user = User.show(m.route.param("userId"));
     };
+    this.tinyButtonKeys = ["edit", "archive", "delete"];
     this.buttonItems = [
       {
         "icon": "fa-eye",
