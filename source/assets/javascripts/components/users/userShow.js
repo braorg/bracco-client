@@ -1,7 +1,5 @@
 userShow = (function() {
 
-  var tinyButtonKeys = ["edit", "archive", "delete"];
-
   var content = function(ctrl) {
     return [
       m(".col-xs-12 .col-sm-7 .col-md-4 .center-block", [
@@ -13,7 +11,7 @@ userShow = (function() {
           m("img", { src: Bracco.baseUrl + ctrl.user().avatar_url, class: "img-responsive decorator" })
         ])
       ]),
-      m.component(tinyNav, { buttons: getTinies(ctrl.user(), tinyButtonKeys), style: "verticalStyle" })
+      m.component(tinyNav, { buttons: getTinies(ctrl.user(), ctrl.tinyButtonKeys()), style: "verticalStyle" })
 		];
   };
 
@@ -21,6 +19,13 @@ userShow = (function() {
     controller: function(){
       var ctrl = this;
       ctrl.user = User.show(m.route.param("userId"));
+      ctrl.tinyButtonKeys = function(){
+        if( ctrl.user().archived ) {
+          return ["restores", "delete"];
+        } else {
+          return ["edit", "archive", "delete"];
+        }
+      };
     },
     view: mixinLayout(layout2, topNav, sidebarNav, breadcrumbBar, content)
   };
