@@ -13,7 +13,16 @@ userEdit = (function() {
             m.component(textField, { type: 'email', placeholder: 'Email', value: ctrl.user().email, id: 'email' }),
             m.component(textField, { type: 'password', placeholder: 'Password', id: 'password' }),
             m.component(textField, { type: 'password', placeholder: 'Conferma Password', id: 'confirm_password' }),
-            m("select", { class: 'form-control'}, ctrl.selected()),
+            m("select", { class: 'form-control'}, [
+              m("option", {
+                value: "1",
+                selected: (ctrl.user().profile_id === 1) ? true : false
+              }, "Amministratore"),
+              m("option", {
+                value: "2",
+                selected: (ctrl.user().profile_id === 2) ? true : false
+              }, "Utente")
+            ]),
             m("button[type=submit]", { class: 'btn btn-success btn-lg' }, "Modifica Utente" )
           ])
         ])
@@ -26,20 +35,6 @@ userEdit = (function() {
     controller: function(){
       var ctrl = this;
       ctrl.user = User.show(m.route.param("userId"));
-
-      ctrl.selected = function() {
-        if(ctrl.user().profile_id == "1"){
-          return [
-            m("option", { value: "1", selected: true }, "Amministratore"),
-            m("option", { value: "2" }, "Utente semplice")
-          ]
-        } else {
-          return [
-            m("option", { value: "1" }, "Amministratore"),
-            m("option", { value: "2", selected: true }, "Utente semplice")
-          ]
-        }
-      };
     },
     view: mixinLayout(layout2, topNav, sidebarNav, breadcrumbBar, content)
   };

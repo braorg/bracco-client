@@ -7,7 +7,7 @@ userShow = (function() {
           m("p", { class: "no-margin-top decorator" }, ctrl.user().first_name + " " + ctrl.user().last_name),
           m("p", { class: "no-margin-top decorator" }, ctrl.user().username),
           m("p", { class: "no-margin-top decorator" }, ctrl.user().email),
-          m("p", { class: "no-margin-top decorator" }, ( (ctrl.user().profile_id == "1") ? "Amministratore" : "Utente semplice") ),
+          m("p", { class: "no-margin-top decorator" }, ( (ctrl.user().profile_id === 1) ? "Amministratore" : "Utente") ),
           m("img", { src: Bracco.baseUrl + ctrl.user().avatar_url, class: "img-responsive decorator" })
         ])
       ]),

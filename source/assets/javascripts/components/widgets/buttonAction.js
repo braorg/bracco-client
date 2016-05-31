@@ -5,11 +5,12 @@ var buttonAction = {
       alert("Archive");
       // ctrl.user = User.archive(m.route.param("userId"));
     };
-    // this.restores = function() {
-    //   alert("Ripristina");
-    // };
+    this.restores = function() {
+      alert("Ripristina");
+    };
     this.delete = function() {
-      ctrl.user = User.delete(m.route.param("userId"));
+      alert("Delete");
+      // ctrl.user = User.delete(m.route.param("userId"));
     };
   },
   view: function(ctrl, attrs) {
