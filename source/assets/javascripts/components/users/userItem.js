@@ -11,7 +11,11 @@ var userItem = {
         m("span", { class: "column" }, user.username),
         m("span", { class: "column" }, user.email)
       ]),
-      m(tinyNav, { buttons: getTinies(ctrl.user, ctrl.buttons), style: "horizontalStyle" })
+      m(tinyNav,
+        { buttons: getTinies(ctrl.user, ctrl.buttons),
+          style: "horizontalStyle"
+        }
+      )
     ])
   }
 }

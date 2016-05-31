@@ -2,7 +2,8 @@ var User = (function() {
   var url = "api/users/";
   var defaultOptions = {
     unwrapSuccess: function(response) {
-      return response.data;
+      if(response)
+        return response.data;
     },
     unwrapError: function(response) {
       return response.error;

@@ -66,7 +66,8 @@ UserPage.config = {
         icon: "fa-trash-o",
         title: "Elimina",
         action: "delete",
-        btnClass: "btn-danger"
+        btnClass: "btn-danger",
+        id: id
       }
     };
   }
