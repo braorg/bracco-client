@@ -8,22 +8,22 @@ var buttonAction = {
     ctrl.restores = function() {
       alert("Ripristina");
     };
-    ctrl.delete = function() {
-      if (confirm("Sei sicuro?")) {
-        User.delete(attrs.id).then(function() {
-          alert("L'utente è stato cancellato correttamente");
-          m.route("/users");
-        });
-      }
-    };
+    // ctrl.delete = function() {
+    //   if (confirm("Sei sicuro?")) {
+    //     User.delete(attrs.id).then(function() {
+    //       alert("L'utente è stato cancellato correttamente");
+    //       m.route("/users");
+    //     });
+    //   }
+    // };
   },
   view: function(ctrl, attrs) {
     return m("li", [
       m("a", {
-        class: "btn btn-square " + attrs.btnClass ,
+        class: "btn btn-square " + attrs.btnClass,
         onclick: ctrl[attrs.action],
-        title: attrs.title
-        // id: attrs.id
+        title: attrs.title,
+        id: attrs.id
       }, [
         m("i", { class: "fa " + attrs.icon, "aria-hidden": "true" })
       ])

@@ -4,7 +4,7 @@ var userActions = {
       // m("div", { class: "btn btn-checkbox" }, [
       //   m("div", { class: "btn-checkbox__flag" })
       // ]),
-      m("ul", { class: attrs.list_type + " no-margin" },
+      m("ul", { class: attrs.class + " no-margin" },
         attrs.buttons.map( function(button){
           if(button.link){
             return m(buttonLink, button);

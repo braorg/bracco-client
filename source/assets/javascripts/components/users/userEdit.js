@@ -27,7 +27,7 @@ userEdit = (function() {
           ])
         ])
       ]),
-      m.component(tinyNav, { buttons: getTinies(ctrl.user(), tinyButtonKeys), style: "verticalStyle" })
+      m.component(tinyNav, { buttons: getTinies(ctrl.user(), tinyButtonKeys), class: "list-unstyled" })
 		];
   };
 
