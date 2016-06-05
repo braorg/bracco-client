@@ -3,8 +3,14 @@ var userItem = {
     var ctrl = this;
     ctrl.user = user;
     ctrl.buttons = buttons;
+    ctrl.archive = function() {
+      alert("Archive");
+    };
+    ctrl.restores = function() {
+      alert("Ripristina");
+    };
     ctrl.delete = function() {
-      if (confirm("Sei sicuro?")) {
+      confirmDialog.show(function() {
         User.delete(ctrl.user.id).then(function() {
           parent.users().map(function(item, idx) {
             if(item.id === ctrl.user.id) {
@@ -13,7 +19,7 @@ var userItem = {
             }
           })
         });
-      }
+      })
     };
   },
   view: function(ctrl, user, buttons){
@@ -27,7 +33,9 @@ var userItem = {
       m(tinyNav, {
         buttons: getTinies(ctrl.user, ctrl.buttons),
         actions: {
-          onDelete: ctrl.delete
+          onDelete: ctrl.delete,
+          onArchive: ctrl.archive,
+          onRestores: ctrl.restores
         },
         class: "list-inline"
       })

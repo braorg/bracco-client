@@ -2,7 +2,6 @@ userForm = (function() {
 
   var content = function(ctrl) {
     return [
-      m.component(confirmDialog),
       m('.col-xs-12 .col-sm-7 .col-md-4 .center-block', [
         m('.wrapper .padding-30', [
           m("form", { class: 'text-center form-customized' }, [
@@ -58,12 +57,7 @@ userForm = (function() {
             m("button[type=button]", {
               class: 'btn btn-success btn-lg',
               onclick: ctrl.create
-            }, "Crea Utente" ),
-            m("button", {
-              type: "button",
-              class: "btn btn-default",
-              onclick: confirmDialog.show
-            }, "ok"),
+            }, "Crea Utente" )
           ])
         ])
       ])

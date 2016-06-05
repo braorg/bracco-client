@@ -2,6 +2,7 @@ usersList = (function() {
 
   var content = function(ctrl) {
     return [
+      m.component(confirmDialog),
       m(toolBar),
       m(".items-list",
         ctrl.users().map(function(user) {

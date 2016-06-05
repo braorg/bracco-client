@@ -1,5 +1,7 @@
 var confirmDialog = {
-  show: function(){
+  cbConfirm: null,
+  show: function(cb){
+    confirmDialog.cbConfirm = cb;
     $("#confirmDialog").fadeIn( "fast" );
   },
   hide: function(){
@@ -7,8 +9,9 @@ var confirmDialog = {
   },
   controller: function() {
     var ctrl = this;
-    ctrl.ok = function(){
+    ctrl.confirm = function(){
       confirmDialog.hide();
+      confirmDialog.cbConfirm();
     };
     ctrl.cancel = function(){
       confirmDialog.hide();
@@ -31,14 +34,14 @@ var confirmDialog = {
               type: "button",
               class: "btn btn-success",
               "data-dismiss": "modal",
-              onclick: ctrl.ok
+              onclick: ctrl.confirm
             }, "Conferma"),
             m("button", {
               type: "button",
               class: "btn btn-danger",
               "data-dismiss": "modal",
               onclick: ctrl.cancel
-            }, "Cancella")
+            }, "Annulla")
           ])
         ])
       ])

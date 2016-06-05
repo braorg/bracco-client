@@ -11,7 +11,15 @@ userShow = (function() {
           m("img", { src: Bracco.baseUrl + ctrl.user().avatar_url, class: "img-responsive decorator" })
         ])
       ]),
-      m.component(tinyNav, { buttons: getTinies(ctrl.user(), ctrl.tinyButtonKeys()), class: "list-unstyled" })
+      m.component(tinyNav, {
+        buttons: getTinies(ctrl.user(), ctrl.tinyButtonKeys()),
+        actions: {
+          onDelete: ctrl.delete,
+          onArchive: ctrl.archive,
+          onRestores: ctrl.restores
+        },
+        class: "list-unstyled" 
+      })
 		];
   };
 
