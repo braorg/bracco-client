@@ -5,7 +5,7 @@ usersList = (function() {
       m(toolBar),
       m(".items-list",
         ctrl.users().map(function(user) {
-          return m(userItem, user, ctrl.tinyButtonKeys);
+          return m(userItem, user, ctrl.tinyButtonKeys, ctrl);
         })
       )
 		];

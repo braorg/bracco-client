@@ -9,7 +9,7 @@ var userActions = {
           if(button.link){
             return m(buttonLink, button);
           } else {
-            return m(buttonAction, button);
+            return m(buttonAction, button, attrs.actions);
           }
         })
       )

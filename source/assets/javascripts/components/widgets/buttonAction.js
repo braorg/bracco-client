@@ -1,5 +1,5 @@
 var buttonAction = {
-  controller: function(attrs){
+  controller: function(button, actions){
     var ctrl = this;
     ctrl.archive = function() {
       alert("Archive");
@@ -17,15 +17,14 @@ var buttonAction = {
     //   }
     // };
   },
-  view: function(ctrl, attrs) {
+  view: function(ctrl, button, actions) {
     return m("li", [
       m("a", {
-        class: "btn btn-square " + attrs.btnClass,
-        onclick: ctrl[attrs.action],
-        title: attrs.title,
-        id: attrs.id
+        class: "btn btn-square " + button.btnClass,
+        onclick: actions[button.action],
+        title: button.title
       }, [
-        m("i", { class: "fa " + attrs.icon, "aria-hidden": "true" })
+        m("i", { class: "fa " + button.icon, "aria-hidden": "true" })
       ])
     ])
   }

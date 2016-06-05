@@ -1,13 +1,17 @@
 var userItem = {
-  controller: function(user, buttons){
+  controller: function(user, buttons, parent){
     var ctrl = this;
     ctrl.user = user;
     ctrl.buttons = buttons;
     ctrl.delete = function() {
       if (confirm("Sei sicuro?")) {
         User.delete(ctrl.user.id).then(function() {
-          alert("L'utente è stato cancellato correttamente");
-          m.route("/users");
+          parent.users().map(function(item, idx) {
+            if(item.id === ctrl.user.id) {
+              parent.users().splice(idx, 1);
+              return;
+            }
+          })
         });
       }
     };
@@ -22,7 +26,9 @@ var userItem = {
       ]),
       m(tinyNav, {
         buttons: getTinies(ctrl.user, ctrl.buttons),
-        onDelete: ctrl.delete,
+        actions: {
+          onDelete: ctrl.delete
+        },
         class: "list-inline"
       })
     ])

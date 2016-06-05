@@ -65,7 +65,7 @@ UserPage.config = {
       delete: {
         icon: "fa-trash-o",
         title: "Elimina",
-        action: "delete",
+        action: "onDelete",
         btnClass: "btn-danger",
         id: id
       }
