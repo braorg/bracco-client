@@ -3,7 +3,6 @@ var buttonAction = {
     var ctrl = this;
   },
   view: function(ctrl, button, actions) {
-    console.log("rendering buttonAction", button)
     return m("li", [
       m("a", {
         class: "btn btn-square " + button.btnClass,

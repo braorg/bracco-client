@@ -1,6 +1,5 @@
 var buttonLink = {
   view: function(ctrl, button) {
-    console.log("rendering buttonLink", button)
     return m("li", [
       m("a", {
         class: "btn btn-square " + button.btnClass ,

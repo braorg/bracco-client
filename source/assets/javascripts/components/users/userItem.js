@@ -3,6 +3,18 @@ var userItem = {
     var ctrl = this;
     ctrl.user = user;
     ctrl.buttons = buttons;
+    ctrl.cbConfirm = function() {
+      User.delete(ctrl.user.id).then(function() {
+        parent.users().map(function(item, idx) {
+          if(item.id === ctrl.user.id) {
+            parent.users().splice(idx, 1);
+            return;
+          }
+        })
+      });
+    };
+    ctrl.cbCancel = function() {
+    };
     ctrl.archive = function() {
       alert("Archive");
     };
@@ -10,16 +22,13 @@ var userItem = {
       alert("Ripristina");
     };
     ctrl.delete = function() {
-      confirmDialog.show(function() {
-        User.delete(ctrl.user.id).then(function() {
-          parent.users().map(function(item, idx) {
-            if(item.id === ctrl.user.id) {
-              parent.users().splice(idx, 1);
-              return;
-            }
-          })
-        });
-      })
+      confirmDialog.init(
+        {
+          msg: "Sei sicuro di voler cancellare l'elemento?",
+          cbConfirm: ctrl.cbConfirm,
+          cbCancel: ctrl.cbCancel
+        }
+      );
     };
   },
   view: function(ctrl, user, buttons){
