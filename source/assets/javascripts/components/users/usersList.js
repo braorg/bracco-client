@@ -8,6 +8,19 @@ usersList = (function() {
         ctrl.users().map(function(user) {
           return m(userItem, user, ctrl.tinyButtonKeys, ctrl);
         })
+      ),
+      m.component(pagination,
+        $.extend(
+          User.pageInfo,
+          {
+            xhr: function(params) {
+              ctrl.users = User.all(params);
+            },
+            defaultParams: {
+              archived: false
+            }
+          }
+        )
       )
 		];
   };
@@ -15,7 +28,7 @@ usersList = (function() {
   return {
     controller: function(){
       var ctrl = this;
-      ctrl.users = User.all("archived=false");
+      ctrl.users = User.all({archived: false});
       ctrl.tinyButtonKeys = ["show", "edit", "archive", "delete"];
     },
     view: mixinLayout(layout2, topNav, sidebarNav, breadcrumbBar, content)

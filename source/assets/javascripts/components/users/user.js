@@ -2,13 +2,20 @@ var User = (function() {
   var url = "api/users/";
   var defaultOptions = {
     unwrapSuccess: function(response) {
-      if(response)
+      if(response) {
+        User.pageInfo = {
+          totalEntries: response.total_entries,
+          totalPages: response.total_pages,
+          pageNumber: response.page_number
+        };
         return response.data;
+      }
     },
     unwrapError: function(response) {
       return response.error;
     }
   };
+  var pageInfo = {};
 
   return {
     model: {
@@ -37,7 +44,7 @@ var User = (function() {
       return m.request(
         $.extend({
           method: "GET",
-          url: Bracco.baseUrl + url + "?" + params
+          url: Bracco.baseUrl + url + "?" + $.param(params)
         }, defaultOptions)
       );
     },
