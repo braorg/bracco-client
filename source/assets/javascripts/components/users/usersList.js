@@ -2,7 +2,7 @@ usersList = (function() {
   var paginate = function(ctrl) {
     return m.component(pagination,
       $.extend(
-        ctrl.pageInfo(),
+        ctrl.pageInfo,
         {
           xhr: function(params) {
             ctrl.users = User.all(params, ctrl.requestOptions);
@@ -34,11 +34,11 @@ usersList = (function() {
       ctrl.requestOptions = {
         unwrapSuccess: function(response) {
           if(response) {
-            ctrl.pageInfo({
+            ctrl.pageInfo = {
               totalEntries: response.total_entries,
               totalPages: response.total_pages,
               pageNumber: response.page_number
-            });
+            };
             return response.data;
           }
         },
@@ -47,7 +47,7 @@ usersList = (function() {
         }
       };
       ctrl.users = m.prop([]);
-      ctrl.pageInfo = m.prop({});
+      ctrl.pageInfo = {};
       ctrl.users = User.all({archived: false}, ctrl.requestOptions);
       ctrl.tinyButtonKeys = ["show", "edit", "archive", "delete"];
     },

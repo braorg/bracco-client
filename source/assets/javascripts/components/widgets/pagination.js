@@ -2,7 +2,7 @@ var pagination = {
   view: function(ctrl, pageInfo) {
     ctrl.pageInfo = pageInfo;
     ctrl.paramsFor = function(pageNumber) {
-      return $.extend(ctrl.pageInfo.defaultParams, { page: pageNumber });
+      return $.extend(ctrl.pageInfo.defaultParams || {}, { page: pageNumber });
     };
     ctrl.prevAvailable = function() {
       return ctrl.pageInfo.pageNumber > 1;
