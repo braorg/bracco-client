@@ -32,6 +32,7 @@ var userItem = {
     };
   },
   view: function(ctrl, user, buttons){
+    ctrl.user = user;
     return m('.wrapper .padding-10 .items-list__row', { id: user.id },  [
       m(".items-list__info", [
         m("span", { class: "column" }, user.first_name),
