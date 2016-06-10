@@ -42,10 +42,12 @@ var User = (function() {
       );
     },
     show: function(id) {
-      return m.request({
-        method: "GET",
-        url: Bracco.baseUrl + url + id,
-      });
+      return m.request(
+        $.extend({
+          method: "GET",
+          url: Bracco.baseUrl + url + id,
+        }, defaultOptions)
+      );
     },
     archive: function(id) {
       return m.request(
