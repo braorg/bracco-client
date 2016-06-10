@@ -5,12 +5,16 @@ var userItem = {
     ctrl.buttons = buttons;
     ctrl.cbConfirm = function() {
       User.delete(ctrl.user.id).then(function() {
-        parent.users().map(function(item, idx) {
-          if(item.id === ctrl.user.id) {
-            parent.users().splice(idx, 1);
-            return;
-          }
-        })
+        parent.users = User.all({
+          archived: false,
+          page: parent.pageInfo.pageNumber
+        }, parent.requestOptions);
+        // parent.users().map(function(item, idx) {
+        //   if(item.id === ctrl.user.id) {
+        //     parent.users().splice(idx, 1);
+        //     return;
+        //   }
+        // })
       });
     };
     ctrl.cbCancel = function() {
