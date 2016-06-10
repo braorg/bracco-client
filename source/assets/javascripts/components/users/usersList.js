@@ -1,4 +1,19 @@
 usersList = (function() {
+  var paginate = function(ctrl) {
+    return m.component(pagination,
+      $.extend(
+        ctrl.pageInfo(),
+        {
+          xhr: function(params) {
+            ctrl.users = User.all(params, ctrl.requestOptions);
+          },
+          defaultParams: {
+            archived: false
+          }
+        }
+      )
+    )
+  };
 
   var content = function(ctrl) {
     return [
@@ -9,26 +24,31 @@ usersList = (function() {
           return m(userItem, user, ctrl.tinyButtonKeys, ctrl);
         })
       ),
-      m.component(pagination,
-        $.extend(
-          User.pageInfo,
-          {
-            xhr: function(params) {
-              ctrl.users = User.all(params);
-            },
-            defaultParams: {
-              archived: false
-            }
-          }
-        )
-      )
+      paginate(ctrl)
 		];
   };
 
   return {
     controller: function(){
       var ctrl = this;
-      ctrl.users = User.all({archived: false});
+      ctrl.requestOptions = {
+        unwrapSuccess: function(response) {
+          if(response) {
+            ctrl.pageInfo({
+              totalEntries: response.total_entries,
+              totalPages: response.total_pages,
+              pageNumber: response.page_number
+            });
+            return response.data;
+          }
+        },
+        unwrapError: function(response) {
+          return response.error;
+        }
+      };
+      ctrl.users = m.prop([]);
+      ctrl.pageInfo = m.prop({});
+      ctrl.users = User.all({archived: false}, ctrl.requestOptions);
       ctrl.tinyButtonKeys = ["show", "edit", "archive", "delete"];
     },
     view: mixinLayout(layout2, topNav, sidebarNav, breadcrumbBar, content)

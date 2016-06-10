@@ -2,20 +2,13 @@ var User = (function() {
   var url = "api/users/";
   var defaultOptions = {
     unwrapSuccess: function(response) {
-      if(response) {
-        User.pageInfo = {
-          totalEntries: response.total_entries,
-          totalPages: response.total_pages,
-          pageNumber: response.page_number
-        };
+      if(response)
         return response.data;
-      }
     },
     unwrapError: function(response) {
       return response.error;
     }
   };
-  var pageInfo = {};
 
   return {
     model: {
@@ -40,21 +33,19 @@ var User = (function() {
         }, defaultOptions)
       );
     },
-    all: function(params) {
+    all: function(params, options) {
       return m.request(
         $.extend({
           method: "GET",
           url: Bracco.baseUrl + url + "?" + $.param(params)
-        }, defaultOptions)
+        }, options)
       );
     },
     show: function(id) {
-      return m.request(
-        $.extend({
-          method: "GET",
-          url: Bracco.baseUrl + url + id,
-        }, defaultOptions)
-      );
+      return m.request({
+        method: "GET",
+        url: Bracco.baseUrl + url + id,
+      });
     },
     archive: function(id) {
       return m.request(

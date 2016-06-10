@@ -1,18 +1,16 @@
 var pagination = {
-  controller: function(pageInfo) {
-    var ctrl = this;
+  view: function(ctrl, pageInfo) {
     ctrl.pageInfo = pageInfo;
     ctrl.paramsFor = function(pageNumber) {
-      return $.extend(pageInfo.defaultParams, { page: pageNumber });
+      return $.extend(ctrl.pageInfo.defaultParams, { page: pageNumber });
     };
     ctrl.prevAvailable = function() {
-      return pageInfo.pageNumber > 1;
+      return ctrl.pageInfo.pageNumber > 1;
     };
     ctrl.nextAvailable = function() {
-      return pageInfo.pageNumber < pageInfo.totalPages;
+      return ctrl.pageInfo.pageNumber < ctrl.pageInfo.totalPages;
     };
-  },
-  view: function(ctrl) {
+
     if(ctrl.pageInfo.totalPages > 1) {
       return m("nav", {}, [
         m("ul", { class: "pagination" }, [].concat(
@@ -66,14 +64,11 @@ var pagination = {
 }
 
 var paginationLink = {
-  controller: function(attrs) {
-    var ctrl = this;
+  view: function(ctrl, attrs) {
     ctrl.action = attrs.action;
     ctrl.idx = attrs.idx;
     ctrl.currentPage = attrs.currentPage;
-  },
-  view: function(ctrl) {
-    console.log(ctrl.currentPage, ctrl.idx);
+
     return m("li", {
       class: (ctrl.currentPage === ctrl.idx) ? "active" : ""
     }, [
