@@ -1,5 +1,16 @@
 usersList = (function() {
   var paginate = function(ctrl) {
+    // to use pagination component you need to provide the following params:
+    // 1. pagination (the component)
+    // 2. a json configuration options
+    //   2a. totalPages: number of pages (mandatory)
+    //   2b. pageNumber: current page number (mandatory)
+    //   2c. xhr: callback to execute on user click (mandatory)
+    //     ex. function(params) {
+    //           ...
+    //         }
+    //   2d. defaultParams: additional params to include on xhr callback (optional)
+
     return m.component(pagination,
       $.extend(
         ctrl.pageInfo,

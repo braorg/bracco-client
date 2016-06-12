@@ -1,17 +1,18 @@
 var pagination = {
+  pageInfo: {},
+  paramsFor: function(pageNumber) {
+    return $.extend(this.pageInfo.defaultParams || {}, { page: pageNumber });
+  },
+  prevAvailable: function() {
+    return this.pageInfo.pageNumber > 1;
+  },
+  nextAvailable: function() {
+    return this.pageInfo.pageNumber < this.pageInfo.totalPages;
+  },
   view: function(ctrl, pageInfo) {
-    ctrl.pageInfo = pageInfo;
-    ctrl.paramsFor = function(pageNumber) {
-      return $.extend(ctrl.pageInfo.defaultParams || {}, { page: pageNumber });
-    };
-    ctrl.prevAvailable = function() {
-      return ctrl.pageInfo.pageNumber > 1;
-    };
-    ctrl.nextAvailable = function() {
-      return ctrl.pageInfo.pageNumber < ctrl.pageInfo.totalPages;
-    };
+    this.pageInfo = pageInfo;
 
-    if(ctrl.pageInfo.totalPages > 1) {
+    if(this.pageInfo.totalPages > 1) {
       return m("nav", {}, [
         m("ul", { class: "pagination" }, [].concat(
           m("li", {}, [
@@ -19,40 +20,40 @@ var pagination = {
               href: "#",
               onclick: function(event) {
                 event.preventDefault();
-                if(ctrl.prevAvailable())
-                  ctrl.pageInfo.xhr(ctrl.paramsFor(ctrl.pageInfo.pageNumber - 1));
+                if(this.prevAvailable())
+                  this.pageInfo.xhr(this.paramsFor(this.pageInfo.pageNumber - 1));
                 else
                   void(0);
-              },
+              }.bind(this),
               "aria-label": "Precedente",
-              class: ctrl.prevAvailable() ? "active" : "disabled"
+              class: this.prevAvailable() ? "active" : "disabled"
             }, [
               m("span", { "aria-hidden": "true" }, m.trust("&laquo;"))
             ])
           ])).concat(
-            (Array.apply(null, Array(ctrl.pageInfo.totalPages))).map(function(_, idx) {
+            (Array.apply(null, Array(this.pageInfo.totalPages))).map(function(_, idx) {
               return m(paginationLink, {
                 action: function(event) {
                   event.preventDefault();
-                  ctrl.pageInfo.xhr(ctrl.paramsFor(idx + 1));
-                },
+                  this.pageInfo.xhr(this.paramsFor(idx + 1));
+                }.bind(this),
                 idx: (idx + 1),
-                currentPage: ctrl.pageInfo.pageNumber
+                currentPage: this.pageInfo.pageNumber
               });
-            })
+            }.bind(this))
           ).concat(
           m("li", {}, [
             m("a", {
               href: "#",
               onclick: function(event) {
                 event.preventDefault();
-                if(ctrl.nextAvailable())
-                  ctrl.pageInfo.xhr(ctrl.paramsFor(ctrl.pageInfo.pageNumber + 1));
+                if(this.nextAvailable())
+                  this.pageInfo.xhr(this.paramsFor(this.pageInfo.pageNumber + 1));
                 else
                   void(0);
-              },
+              }.bind(this),
               "aria-label": "Successiva",
-              class: ctrl.nextAvailable() ? "active" : "disabled"
+              class: this.nextAvailable() ? "active" : "disabled"
             }, [
               m("span", { "aria-hidden": "true" }, m.trust("&raquo;"))
             ])
@@ -65,17 +66,17 @@ var pagination = {
 
 var paginationLink = {
   view: function(ctrl, attrs) {
-    ctrl.action = attrs.action;
-    ctrl.idx = attrs.idx;
-    ctrl.currentPage = attrs.currentPage;
+    this.action = attrs.action;
+    this.idx = attrs.idx;
+    this.currentPage = attrs.currentPage;
 
     return m("li", {
-      class: (ctrl.currentPage === ctrl.idx) ? "active" : ""
+      class: (this.currentPage === this.idx) ? "active" : ""
     }, [
       m("a", {
         href: "#",
-        onclick: ctrl.action
-      }, ctrl.idx)
+        onclick: this.action
+      }, this.idx)
     ]);
   }
 }
